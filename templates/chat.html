@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}{{ theme.bot_name }} &middot; {{ theme.name }}{% endblock %}
+{% block color %}{{ theme.color }}{% endblock %}
+
+{% block header_extra %}
+<div class="header-actions">
+  <a class="btn-ghost" href="{{ url_for('admin_page', theme_id=theme.id) }}">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+    </svg>
+    <span>Statistik</span>
+  </a>
+  <button id="btn-clear" class="btn-ghost" type="button">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+    </svg>
+    <span>Hapus riwayat</span>
+  </button>
+</div>
+{% endblock %}
+
+{% block content %}
+<section class="chat-card">
+  <div class="chat-header">
+    <div class="avatar-box" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+      </svg>
+    </div>
+    <div class="chat-title">
+      <div class="chat-title-row">
+        <h1>{{ theme.bot_name }}</h1>
+        <span class="status-pill"><span class="status-dot"></span>Online</span>
+      </div>
+      <p>{{ theme.name }}</p>
+    </div>
+    <label class="learn-toggle" title="Tampilkan 3 kandidat intent dan skor kemiripan">
+      <input type="checkbox" id="learn-mode">
+      <span class="toggle-track" aria-hidden="true"></span>
+      <span>Mode belajar</span>
+    </label>
+  </div>
+
+  <div id="messages" class="messages" aria-live="polite"></div>
+
+  <div class="suggestions" aria-label="Pertanyaan cepat">
+    {% for s in theme.suggestions %}
+    <button type="button" class="chip">{{ s }}</button>
+    {% endfor %}
+  </div>
+
+  <form id="chat-form" class="chat-form" autocomplete="off">
+    <input id="chat-input" type="text" placeholder="Ketik pertanyaan atau kendala keamananmu..." maxlength="500" required aria-label="Pesan">
+    <button type="submit" aria-label="Kirim pesan">
+      <span>Kirim</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
+  </form>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const THEME = {
+    id: {{ theme.id | tojson }},
+    avatar: {{ theme.avatar | tojson }},
+    greeting: {{ theme.greeting | tojson }}
+  };
+</script>
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}

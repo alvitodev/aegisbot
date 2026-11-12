@@ -1,0 +1,219 @@
+{
+  "id": "aegis",
+  "name": "Asisten Keamanan Siber & Privasi",
+  "bot_name": "AegisBot",
+  "avatar": "🛡️",
+  "color": "#0f766e",
+  "description": "Menjawab pertanyaan seputar keamanan password, 2FA, deteksi phishing/APK scam, keamanan Wi-Fi, dan tanggap insiden malware.",
+  "greeting": "Halo! Saya AegisBot 🛡️, asisten pertahanan siber dan privasi digitalmu. Tanyakan soal keamanan password & 2FA, cek kebocoran email, deteksi phishing/file APK, keamanan Wi-Fi publik, atau penanganan malware & akun dibajak.",
+  "suggestions": [
+    "Cara bikin password kuat",
+    "Ciri link phishing & APK kurir",
+    "Aman gak pakai Wi-Fi publik?",
+    "Solusi akun kena hack"
+  ],
+  "fallback": [
+    "Maaf, saya fokus pada keamanan siber dan privasi digital. Pertanyaan ini di luar topik yang saya kuasai. Ada yang ingin kamu tanyakan seputar password, phishing, Wi-Fi, atau malware?",
+    "Topik tersebut belum saya pahami. Sebagai asisten keamanan siber, saya bisa membantumu seputar kata sandi kuat, verifikasi 2FA, deteksi scam/phishing, keamanan jaringan Wi-Fi, hingga pemulihan akun."
+  ],
+  "intents": [
+    {
+      "tag": "salam",
+      "patterns": [
+        "halo",
+        "selamat pagi",
+        "selamat siang",
+        "selamat sore",
+        "selamat malam",
+        "assalamualaikum",
+        "permisi",
+        "halo aegisbot",
+        "halo asisten siber"
+      ],
+      "responses": [
+        "Halo! Saya AegisBot, siap membantumu menjaga keamanan data, privasi, dan akun digital. Ada kendala keamanan atau yang ingin kamu tanyakan?",
+        "Halo dan salam keamanan siber! Tetap waspada di ruang digital. Apa yang bisa saya bantu terkait proteksi perangkat atau akunmu hari ini?"
+      ]
+    },
+    {
+      "tag": "terima_kasih",
+      "patterns": [
+        "terima kasih",
+        "makasih banyak",
+        "oke terima kasih",
+        "mantap terima kasih",
+        "sip terima kasih",
+        "terima kasih infonya"
+      ],
+      "responses": [
+        "Sama-sama! Selalu ingat untuk waspada terhadap segala potensi ancaman siber di sekitarmu.",
+        "Senang bisa membantu. Tetap jaga kerahasiaan data pribadi, kata sandi, dan kredensialmu ya!"
+      ]
+    },
+    {
+      "tag": "perpisahan",
+      "patterns": [
+        "dadah",
+        "sampai jumpa",
+        "bye",
+        "selesai",
+        "sudah cukup",
+        "terima kasih sampai jumpa"
+      ],
+      "responses": [
+        "Sampai jumpa! Jangan ragu kembali berkonsultasi jika menemui aktivitas mencurigakan di internet.",
+        "Sesi selesai. Selalu amankan perangkat, perbarui aplikasi secara rutin, dan jaga privasimu!"
+      ]
+    },
+    {
+      "tag": "identitas",
+      "patterns": [
+        "siapa kamu",
+        "kamu siapa",
+        "nama kamu siapa",
+        "kamu bot apa",
+        "aegisbot itu apa",
+        "kamu bisa apa",
+        "jelaskan tentang dirimu"
+      ],
+      "responses": [
+        "Saya {nama_bot}, asisten keamanan siber yang siap membantumu melindungi data pribadi, mencegah penipuan online, dan menangani insiden digital.",
+        "Kenalkan, saya {nama_bot}! Fokus saya adalah memberikan edukasi kebersihan siber (cyber hygiene) dan panduan pertolongan pertama saat terjadi insiden malware atau akun dibajak."
+      ]
+    },
+    {
+      "tag": "waktu",
+      "patterns": [
+        "jam berapa sekarang",
+        "sekarang jam berapa",
+        "tanggal berapa hari ini",
+        "hari ini tanggal berapa",
+        "cek waktu server",
+        "pukul berapa sekarang"
+      ],
+      "responses": [
+        "Waktu sistem saat ini menunjukkan pukul {waktu} pada tanggal {tanggal}. Jangan lupa cek log aktivitas akunmu secara berkala!",
+        "Saat ini jam server mencatat pukul {waktu}, tanggal {tanggal}. Pastikan zona waktu perangkatmu selalu sinkron untuk keperluan autentikasi 2FA."
+      ]
+    },
+    {
+      "tag": "password_2fa",
+      "patterns": [
+        "cara bikin password kuat",
+        "rekomendasi password manager",
+        "cara aktifkan 2fa",
+        "autentikasi dua faktor",
+        "password yang aman",
+        "simpan password dimana",
+        "beda 2fa authenticator dengan sms",
+        "tips membuat passphrase aman"
+      ],
+      "responses": [
+        "Gunakan passphrase minimal 12 karakter yang memadukan 4 kata acak tanpa pola umum (contoh: 'kuda-menari-kopi-dingin'). Simpan dan kelola di Password Manager tepercaya seperti Bitwarden atau KeePassXC. Wajib aktifkan 2FA berbasis aplikasi Authenticator (Google Authenticator / Aegis) daripada SMS karena SMS rawan serangan SIM swap.",
+        "Kunci keamanan akun dimulai dari kata sandi unik per layanan: jangan pernah mendaur ulang kata sandi! Gunakan Password Manager agar tidak perlu menghafal puluhan kunci rumit, dan selalu nyalakan Two-Factor Authentication (2FA) berbasis TOTP untuk mencegah pembobolan credential stuffing."
+      ]
+    },
+    {
+      "tag": "kebocoran_data",
+      "patterns": [
+        "cek email bocor",
+        "data pribadi bocor",
+        "apakah email saya aman",
+        "kebocoran data breach",
+        "akun kena data breach",
+        "cek kebocoran password",
+        "cara tahu data kita bocor",
+        "langkah mitigasi kebocoran data"
+      ],
+      "responses": [
+        "Untuk memeriksa apakah email atau nomor teleponmu terdampak kebocoran data, kunjungi situs 'Have I Been Pwned' (haveibeenpwned.com) atau 'PeriksaData' (periksadata.com). Jika emailmu terdaftar dalam insiden breach, segera ganti password di akun terkait dan aktifkan 2FA!",
+        "Kebocoran data (data breach) umumnya mengekspos username, hash password, atau nomor telepon. Jika data kamu bocor: 1) Ganti password di layanan tersebut dan akun lain yang memakai password serupa, 2) Aktifkan 2FA, 3) Waspadai email atau pesan phishing yang memanfaatkan data bocor tersebut."
+      ]
+    },
+    {
+      "tag": "phishing_apk",
+      "patterns": [
+        "ciri link phishing",
+        "kiriman file apk kurir",
+        "undangan apk whatsapp",
+        "cek link penipuan",
+        "bedakan web asli dan palsu",
+        "scam file apk undangan",
+        "cara periksa url mencurigakan",
+        "bahaya link phishing typosquatting"
+      ],
+      "responses": [
+        "Waspada link phishing dan scam APK! Ciri link palsu biasanya menggunakan typosquatting (misal: 'klik-bca-login.xyz' bukan 'klikbca.com') dan memicu urgensi berlebih. Jika menerima tautan mencurigakan, jangan langsung diklik—salin tautan lalu pindai di VirusTotal (virustotal.com) atau URLScan.io.",
+        "Modus penipuan file .apk (seperti surat undangan pernikahan palsu, tagihan PLN, resi paket kurir J&T/SiCepat) di WhatsApp dirancang untuk mencuri SMS OTP perbankan. Jangan pernah menginstal file berekstensi .apk dari chat pribadi dan matikan izin 'Install Unknown Apps' di pengaturan HP!"
+      ]
+    },
+    {
+      "tag": "keamanan_wifi",
+      "patterns": [
+        "bahaya wifi publik",
+        "aman gak pakai wifi gratis",
+        "fungsi vpn keamanan",
+        "setting dns aman",
+        "cara aman konek wifi kafe",
+        "sadap wifi evil twin",
+        "tips internetan di wifi umum",
+        "m banking di wifi kafe aman tidak"
+      ],
+      "responses": [
+        "Jaringan Wi-Fi publik tanpa proteksi rentan terhadap serangan Man-in-the-Middle (MitM) dan Evil Twin (titik akses palsu penjebak). Jika terpaksa memakai Wi-Fi kafe/kampus, gunakan VPN pribadi (seperti WireGuard atau Tailscale), aktifkan DNS-over-HTTPS (DoH) di browser, dan jangan buka aplikasi perbankan m-banking.",
+        "Saat terhubung ke Wi-Fi publik gratis: pastikan situs selalu memakai protokol HTTPS (gembok hijau), matikan fitur file sharing dan auto-connect Wi-Fi, serta aktifkan firewall perangkat. Lebih aman gunakan kuota data seluler tethering jika ingin melakukan transaksi keuangan sensitif."
+      ]
+    },
+    {
+      "tag": "malware_ransomware",
+      "patterns": [
+        "ciri laptop kena malware",
+        "hp kena virus iklan",
+        "file terkunci ransomware",
+        "cara hapus malware",
+        "terlanjur instal apk penipu",
+        "bersihin virus laptop",
+        "pertolongan pertama kena ransomware",
+        "tanda perangkat terinfeksi malware"
+      ],
+      "responses": [
+        "Pertolongan pertama jika perangkat terindikasi malware/ransomware: 1) Segera putuskan koneksi internet (aktifkan Airplane Mode / cabut kabel LAN) agar malware tidak menyebar atau mengirim data, 2) Masuk ke Safe Mode dan hapus aplikasi mencurigakan serta cabut izin Aksesibilitas (Accessibility Service), 3) Lakukan pemindaian penuh menggunakan antivirus tepercaya seperti Microsoft Defender atau Malwarebytes.",
+        "Jika file terkunci ransomware (ekstensi file berubah dan ada pesan tebusan): isolasi perangkat dari jaringan lokal segera! Jangan bayar uang tebusan karena tidak menjamin dekripsi. Cek situs No More Ransom (nomoreransom.org) untuk melihat apakah ada kunci dekripsi gratis yang tersedia untuk varian ransomware tersebut."
+      ]
+    },
+    {
+      "tag": "pemulihan_akun",
+      "patterns": [
+        "akun instagram dihack",
+        "email dibajak orang",
+        "cara balikin akun kena hack",
+        "whatsapp kena sadap",
+        "akun diambil alih",
+        "solusi akun kebobol",
+        "akun media sosial dibajak",
+        "langkah pemulihan akun diretas"
+      ],
+      "responses": [
+        "Langkah darurat pemulihan akun yang dibajak: 1) Gunakan perangkat bersih yang tidak terinfeksi, 2) Lakukan reset password melalui email atau nomor telepon pemulihan, 3) Pilih opsi 'Keluar dari semua sesi' (Logout All Sessions/Devices) untuk menendang peretas, 4) Periksa aturan email forwarding/filter yang mungkin dipasang peretas, 5) Aktifkan 2FA berbasis aplikasi.",
+        "Jika akun WhatsApp atau Instagram diambil alih: laporkan segera melalui pusat bantuan resmi masing-masing platform. Beri tahu kontak keluarga/rekan kerja agar tidak merespons permintaan pinjaman uang atau transfer saldo dari nomormu, lalu mintalah kode verifikasi baru setelah menghapus aplikasi yang tidak dikenal."
+      ]
+    },
+    {
+      "tag": "backup_enkripsi",
+      "patterns": [
+        "cara backup data aman",
+        "apa itu aturan backup 3 2 1",
+        "cara enkripsi file penting",
+        "amankan data dari ransomware",
+        "backup dokumen penting",
+        "rekomendasi software enkripsi",
+        "cara amankan file rahasia di laptop",
+        "strategi cadangkan data anti ransomware"
+      ],
+      "responses": [
+        "Strategi perlindungan data terbaik dari ransomware adalah menerapkan aturan Backup 3-2-1: simpan minimal 3 salinan data, pada 2 jenis media penyimpanan berbeda (misal SSD eksternal dan cloud drive), dengan 1 salinan disimpan di tempat terpisah (off-site/cold storage yang tidak tersambung terus ke internet).",
+        "Untuk melindungi file sensitif dari pencurian data jika laptop hilang atau dicuri, gunakan enkripsi penuh (Full Disk Encryption) seperti BitLocker (Windows) atau FileVault (macOS). Untuk mengenkripsi folder atau partisi khusus, kamu bisa menggunakan software open-source VeraCrypt atau Cryptomator untuk cloud storage."
+      ]
+    }
+  ]
+}

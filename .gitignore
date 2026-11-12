@@ -1,0 +1,32 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# Pytest & testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+chat_history.db
+
+# Archives
+*.zip
+
+
+# Flask & OS
+instance/
+.webassets-cache
+.DS_Store
+Thumbs.db

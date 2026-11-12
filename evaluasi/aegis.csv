@@ -1,0 +1,36 @@
+kalimat,intent
+halo selamat siang kak,salam
+assalamualaikum bot siber,salam
+makasih banyak atas bantuannya min,terima_kasih
+mantap makasih infonya sangat berguna,terima_kasih
+oke dadah sampai ketemu lagi,perpisahan
+bye sampai jumpa nanti,perpisahan
+kamu sebenarnya siapa sih,identitas
+aegisbot ini bot apa ya,identitas
+jam berapa sekarang di server,waktu
+sekarang tanggal berapa ya,waktu
+gimana bikin pw yang kuat dan aman,password_2fa
+cara aktifkan mfa authenticator di hp,password_2fa
+rekomendasi aplikasi simpan sandi,password_2fa
+cara tahu apakah email saya kena bocor,kebocoran_data
+cek data pribadi bocor di have i been pwned,kebocoran_data
+langkah mitigasi kalau akun kena data breach,kebocoran_data
+ciri link pising yang menipu,phishing_apk
+dapat kiriman file apk undangan pernikahan di whatsapp,phishing_apk
+cara cek link phising di virustotal,phishing_apk
+bahaya gak konek wifi kafe gratisan,keamanan_wifi
+fungsi vpn kalau pakai wifi umum,keamanan_wifi
+apakah aman transaksi m banking pakai wifi publik,keamanan_wifi
+hp saya kena virus iklan pop up terus,malware_ransomware
+tanda laptop kena malware dan cara hapusnya,malware_ransomware
+pertolongan pertama file terkunci ransomware tebusan,malware_ransomware
+akun instagram kebobol orang lain,pemulihan_akun
+email saya dihack bagaimana cara balikinnya,pemulihan_akun
+solusi akun whatsapp diretas orang asing,pemulihan_akun
+gimana aturan backup 3 2 1 buat amankan data,backup_enkripsi
+cara enkripsi berkas dokumen penting pakai veracrypt,backup_enkripsi
+resep bikin nasi goreng enak,fallback
+siapa presiden pertama indonesia,fallback
+jadwal kereta api jogja jakarta,fallback
+rekomendasi film bioskop minggu ini,fallback
+harga tiket konser coldplay berapa,fallback

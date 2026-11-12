@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-pill">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+    </svg>
+    <span>Cyber Defense &amp; Privacy Assistant</span>
+  </div>
+  <h1>AegisBot Security Hub</h1>
+  <p>Asisten pertahanan siber berbasis aturan untuk panduan kata sandi &amp; 2FA, deteksi phishing/APK scam, keamanan Wi-Fi publik, serta tanggap darurat insiden malware.</p>
+</section>
+
+<section class="theme-grid theme-grid-single">
+  {% for t in themes %}
+  <a class="theme-card theme-card-featured" href="{{ url_for('chat_page', theme_id=t.id) }}" style="--card: {{ t.color }};">
+    <div class="theme-card-top">
+      <div class="theme-icon-box" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <span class="badge-featured">Aktif &middot; {{ t.intents | length }} Intent</span>
+    </div>
+
+    <h2>{{ t.name }}</h2>
+    <p>{{ t.description }}</p>
+
+    <div class="theme-card-footer">
+      <span class="theme-meta">Mulai Konsultasi dengan {{ t.bot_name }}</span>
+      <span class="theme-arrow" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+        </svg>
+      </span>
+    </div>
+  </a>
+  {% endfor %}
+</section>
+{% endblock %}

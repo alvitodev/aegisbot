@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Analitik {{ theme.bot_name }} &middot; {{ theme.name }}{% endblock %}
+{% block color %}{{ theme.color }}{% endblock %}
+
+{% block header_extra %}
+<div class="header-actions">
+  <a class="btn-ghost" href="{{ url_for('chat_page', theme_id=theme.id) }}">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
+    </svg>
+    <span>Kembali ke chat</span>
+  </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<section class="admin">
+  <div class="admin-head">
+    <div>
+      <h1>Analitik &middot; {{ theme.name }}</h1>
+      <p class="muted">Pantau distribusi intent, tingkat pengenalan kueri, dan daftar pertanyaan yang belum dikenali pada ambang batas <code>{{ threshold }}</code>.</p>
+    </div>
+    <span class="badge-mono">themes/{{ theme.id }}.json</span>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <span class="stat-label">Total Pertanyaan</span>
+      <span class="stat-num">{{ summary.total }}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Rasio Dikenali</span>
+      <span class="stat-num">{{ summary.persen_dikenali }}%</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Tidak Dikenali</span>
+      <span class="stat-num">{{ summary.tidak_dikenali }}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Sesi Pengunjung</span>
+      <span class="stat-num">{{ summary.sesi }}</span>
+    </div>
+  </div>
+
+  <div class="admin-section">
+    <h2>Distribusi Intent</h2>
+    {% if stats %}
+    <div class="table-wrap">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Intent</th>
+            <th>Jumlah</th>
+            <th>Proporsi</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for s in stats %}
+          <tr>
+            <td><span class="intent-tag">{{ s.intent }}</span></td>
+            <td class="num-cell">{{ s.jumlah }}</td>
+            <td>
+              <div class="bar-wrap">
+                <div class="bar"><span style="width: {{ (100 * s.jumlah / summary.total) | round(1) }}%"></span></div>
+                <span class="bar-pct">{{ (100 * s.jumlah / summary.total) | round(1) }}%</span>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <p class="muted empty-state">Belum ada log percakapan untuk asisten ini.</p>
+    {% endif %}
+  </div>
+
+  <div class="admin-section">
+    <h2>Pertanyaan Tidak Dikenali (Terbaru)</h2>
+    {% if unknown %}
+    <div class="table-wrap">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Pertanyaan</th>
+            <th>Skor Tertinggi</th>
+            <th>Waktu</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for u in unknown %}
+          <tr>
+            <td>{{ u.text }}</td>
+            <td><span class="score-pill">{{ "%.2f" | format(u.score or 0) }}</span></td>
+            <td class="time-cell">{{ u.created_at }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <p class="muted empty-state">Seluruh pertanyaan berhasil dikenali dengan baik.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
