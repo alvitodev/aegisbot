@@ -79,6 +79,17 @@ def test_halaman_admin_menampilkan_pertanyaan_tak_dikenali(client):
     assert "tidak dikenali" in html
 
 
+def test_api_analytics(client):
+    client.post("/api/chat", json={"message": "halo", "theme": "aegis"})
+    res = client.get("/api/analytics/aegis")
+    assert res.status_code == 200
+    data = res.get_json()
+    assert "summary" in data
+    assert "stats" in data
+    assert "unknown" in data
+    assert data["summary"]["total"] >= 1
+
+
 def test_admin_key_melindungi_halaman_admin(tmp_path):
     app = create_app({"TESTING": True, "DATABASE": str(tmp_path / "t.db"), "ADMIN_KEY": "rahasia"})
     c = app.test_client()

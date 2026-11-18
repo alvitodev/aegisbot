@@ -56,7 +56,9 @@ def create_app(config: dict | None = None) -> Flask:
     # ------------------------------------------------------------------ #
     @app.route("/")
     def index():
-        return render_template("index.html", themes=themes.values())
+        # Karena AegisBot adalah asisten utama, rute / langsung membuka chat tanpa perantara
+        theme = get_theme_or_404("aegis")
+        return render_template("chat.html", theme=theme)
 
     @app.route("/chat/<theme_id>")
     def chat_page(theme_id):
@@ -84,6 +86,17 @@ def create_app(config: dict | None = None) -> Flask:
             {"id": t["id"], "name": t["name"], "description": t["description"]}
             for t in themes.values()
         ])
+
+    @app.get("/api/analytics/<theme_id>")
+    def api_analytics(theme_id):
+        check_admin()
+        get_theme_or_404(theme_id)
+        return jsonify({
+            "summary": history.summary(theme_id),
+            "stats": history.stats(theme_id),
+            "unknown": history.unknown_questions(theme_id),
+            "threshold": app.config["THRESHOLD"],
+        })
 
     @app.post("/api/chat")
     def api_chat():

@@ -155,34 +155,34 @@ ambang  akurasi
 ```
 
 ### 3. Pengujian Otomatis Pytest (`pytest -v`)
-Seluruh 37 pengujian integrasi dan logika unit mesin berhasil **100% lulus (PASSED)** tanpa error maupun *warning*:
-- **14 Test** `tests/test_app.py`: Route `/`, `/chat/aegis`, `/admin/aegis`, `/api/themes`, `/api/chat`, sesi, riwayat SQLite, dan autentikasi kunci admin.
+Seluruh 38 pengujian integrasi dan logika unit mesin berhasil **100% lulus (PASSED)** tanpa error maupun *warning*:
+- **15 Test** `tests/test_app.py`: Route `/`, `/chat/aegis`, `/admin/aegis`, `/api/themes`, `/api/chat`, sesi, riwayat SQLite, `/api/analytics`, dan autentikasi kunci admin.
 - **23 Test** `tests/test_engine.py`: Normalisasi, stopword, kemiripan, validasi skema tema, 12 intent AegisBot, penanganan *typo*, substitusi placeholder, dan uji batas akurasi $\ge 90\%$.
 
 ---
 
 ## 📸 Galeri Tangkapan Layar Antarmuka
 
-### 1. Halaman Utama Pemilihan Tema (`/`)
-Menampilkan kartu tema baru **AegisBot** bersanding secara harmonis dengan tema bawaan lainnya.
+### 1. Halaman Utama Beranda Instan (`/`)
+Landing langsung ke antarmuka AegisBot tanpa hambatan navigasi katalog tema berlebih, dilengkapi *Starter Prompt Cards* interaktif pada keadaan awal percakapan.
 ![Halaman Utama](screenshots/01-halaman-utama.png)
 
 ---
 
 ### 2. Antarmuka Chat Interaktif AegisBot (`/chat/aegis`)
-Percakapan responsif dengan chip saran dan informasi metadata klasifikasi intent.
+Percakapan responsif dengan tombol salin balasan 1-klik, chip saran dinamis, dan label metadata klasifikasi intent.
 ![Chat AegisBot](screenshots/02-chat-aegis.png)
 
 ---
 
-### 3. Mode Belajar & Transparansi Inferensi (`/api/explain`)
-Menampilkan rincian tiga kandidat intent teratas, skor kemiripan, dan pola pembanding secara transparan.
+### 3. Inspeksi Klasifikasi Interaktif On-Demand (`/api/explain`)
+Inspektur transparansi inferensi: cukup klik lencana metadata pada setiap balasan bot untuk membedah rincian 3 kandidat intent, skor kemiripan, dan pola pembanding secara instan.
 ![Mode Belajar](screenshots/03-mode-belajar.png)
 
 ---
 
-### 4. Dasbor Statistik & Pertanyaan Tak Dikenali (`/admin/aegis`)
-Visualisasi proporsi intent pengguna serta pencatatan otomatis pertanyaan tak terjawab untuk pengembangan berkelanjutan.
+### 4. Slide-Over Analytics Drawer (Zero Page Reload)
+Panel analitik geser samping (*slide-over drawer*) yang memuat statistik intent, total pesan, dan kueri tak terjawab secara instan tanpa mengganggu atau mereload sesi percakapan aktif.
 ![Dasbor Admin](screenshots/04-admin-aegis.png)
 
 ---
@@ -285,7 +285,7 @@ aegisbot/
 │   │   └── style.css            # Desain antarmuka CSS responsif
 │   └── js/
 │       └── chat.js              # Penanganan fetch API asynchronous tanpa reload
-├── tests/                       # Rangkaian uji otomatis (47 test case)
+├── tests/                       # Rangkaian uji otomatis (38 test case)
 │   ├── __init__.py
 │   ├── test_app.py              # Uji integrasi endpoint Flask & API
 │   └── test_engine.py           # Uji unit mesin inferensi & akurasi

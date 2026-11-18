@@ -5,17 +5,17 @@
 
 {% block header_extra %}
 <div class="header-actions">
-  <a class="btn-ghost" href="{{ url_for('admin_page', theme_id=theme.id) }}">
+  <button id="btn-stats" class="btn-ghost" type="button" aria-haspopup="dialog" aria-controls="stats-drawer" title="Buka panel analitik tanpa reload">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
     </svg>
-    <span>Statistik</span>
-  </a>
-  <button id="btn-clear" class="btn-ghost" type="button">
+    <span>Analitik</span>
+  </button>
+  <button id="btn-new-chat" class="btn-ghost" type="button" title="Mulai sesi percakapan baru">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+      <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
     </svg>
-    <span>Hapus riwayat</span>
+    <span>Sesi Baru</span>
   </button>
 </div>
 {% endblock %}
@@ -35,23 +35,28 @@
       </div>
       <p>{{ theme.name }}</p>
     </div>
-    <label class="learn-toggle" title="Tampilkan 3 kandidat intent dan skor kemiripan">
+    <label class="learn-toggle" title="Otomatis bentangkan 3 kandidat intent pada setiap balasan">
       <input type="checkbox" id="learn-mode">
       <span class="toggle-track" aria-hidden="true"></span>
-      <span>Mode belajar</span>
+      <span>Auto-inspect</span>
     </label>
   </div>
 
+  <!-- Area pesan -->
   <div id="messages" class="messages" aria-live="polite"></div>
 
-  <div class="suggestions" aria-label="Pertanyaan cepat">
-    {% for s in theme.suggestions %}
-    <button type="button" class="chip">{{ s }}</button>
-    {% endfor %}
+  <!-- Baris saran pertanyaan fleksibel (otomatis ciut saat chat berjalan, bisa di-toggle) -->
+  <div id="suggestions-bar" class="suggestions" aria-label="Saran pertanyaan cepat">
+    <div class="suggestions-inner">
+      <span class="suggestions-label" aria-hidden="true">Saran:</span>
+      {% for s in theme.suggestions %}
+      <button type="button" class="chip">{{ s }}</button>
+      {% endfor %}
+    </div>
   </div>
 
   <form id="chat-form" class="chat-form" autocomplete="off">
-    <input id="chat-input" type="text" placeholder="Ketik pertanyaan atau kendala keamananmu..." maxlength="500" required aria-label="Pesan">
+    <input id="chat-input" type="text" placeholder="Ketik pertanyaan atau kendala keamananmu (Enter untuk kirim)..." maxlength="500" required aria-label="Pesan">
     <button type="submit" aria-label="Kirim pesan">
       <span>Kirim</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -60,6 +65,89 @@
     </button>
   </form>
 </section>
+
+<!-- Slide-Over Analytics Drawer (Zero Page Reload) -->
+<div id="stats-drawer-backdrop" class="drawer-backdrop" hidden></div>
+<aside id="stats-drawer" class="stats-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden>
+  <div class="drawer-header">
+    <div class="drawer-title-group">
+      <h2 id="drawer-title">Analitik &middot; {{ theme.name }}</h2>
+      <span class="badge-mono">Ambang: <span id="drawer-threshold">0.45</span></span>
+    </div>
+    <button id="btn-close-drawer" class="btn-icon" type="button" aria-label="Tutup panel analitik" title="Tutup (Esc)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body">
+    <div class="stat-grid">
+      <div class="stat">
+        <span class="stat-label">Total Pertanyaan</span>
+        <span class="stat-num" id="stat-total">-</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Rasio Dikenali</span>
+        <span class="stat-num" id="stat-rate">-%</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Tidak Dikenali</span>
+        <span class="stat-num" id="stat-failed">-</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Sesi Pengunjung</span>
+        <span class="stat-num" id="stat-sessions">-</span>
+      </div>
+    </div>
+
+    <div class="admin-section">
+      <div class="section-title-row">
+        <h3>Distribusi Intent</h3>
+        <span class="text-caption">Frekuensi kueri pengguna</span>
+      </div>
+      <div id="drawer-intent-container" class="table-wrap">
+        <div class="loading-state">Memuat data distribusi...</div>
+      </div>
+    </div>
+
+    <div class="admin-section">
+      <div class="section-title-row">
+        <h3>Pertanyaan Tidak Dikenali</h3>
+        <span class="text-caption">Kandidat ekspansi pola intent</span>
+      </div>
+      <div id="drawer-unknown-container" class="table-wrap">
+        <div class="loading-state">Memuat data log...</div>
+      </div>
+    </div>
+
+    <div class="drawer-footer-actions">
+      <a class="btn-ghost" href="{{ url_for('admin_page', theme_id=theme.id) }}" target="_blank" rel="noopener">
+        <span>Buka Tampilan Penuh Admin</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+</aside>
+
+<!-- Modal Konfirmasi Sesi Baru (Mencegah Salah Klik Hapus Riwayat) -->
+<div id="confirm-modal-backdrop" class="modal-backdrop" hidden>
+  <div class="confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-desc">
+    <div class="confirm-icon" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+    </div>
+    <div class="confirm-content">
+      <h3 id="confirm-title">Mulai Sesi Baru?</h3>
+      <p id="confirm-desc">Percakapan aktif ini akan dibersihkan dari layar dan riwayat sesi server Anda.</p>
+    </div>
+    <div class="confirm-actions">
+      <button id="btn-cancel-clear" class="btn-ghost" type="button">Batal</button>
+      <button id="btn-confirm-clear" class="btn-danger" type="button">Ya, Bersihkan</button>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Toast Notification -->
+<div id="toast-container" class="toast-container" aria-live="polite"></div>
 {% endblock %}
 
 {% block scripts %}
@@ -67,7 +155,8 @@
   const THEME = {
     id: {{ theme.id | tojson }},
     avatar: {{ theme.avatar | tojson }},
-    greeting: {{ theme.greeting | tojson }}
+    greeting: {{ theme.greeting | tojson }},
+    suggestions: {{ theme.suggestions | tojson }}
   };
 </script>
 <script src="{{ url_for('static', filename='js/chat.js') }}"></script>

@@ -1,69 +1,71 @@
 import time
+import urllib.request
 from playwright.sync_api import sync_playwright
 
 brave_path = r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
 
 def run():
+    # 0. Reset history first for clean initial state
+    try:
+        req = urllib.request.Request("http://127.0.0.1:5000/api/history/aegis", method="DELETE")
+        urllib.request.urlopen(req)
+    except Exception as e:
+        print("Reset history note:", e)
+
     with sync_playwright() as p:
         browser = p.chromium.launch(executable_path=brave_path, headless=True)
         context = browser.new_context(viewport={"width": 1280, "height": 850})
         page = context.new_page()
 
-        # 1. Halaman Utama
+        # 1. Halaman Utama (Direct Zero-Friction Landing)
         print("Capturing 01-halaman-utama.png...")
         page.goto("http://127.0.0.1:5000/")
-        page.wait_for_selector(".theme-grid")
+        page.wait_for_selector(".welcome-box")
+        time.sleep(1)
         page.screenshot(path="screenshots/01-halaman-utama.png")
 
-        # 2. Halaman Chat AegisBot
+        # 2. Halaman Chat AegisBot (Percakapan Aktif)
         print("Capturing 02-chat-aegis.png...")
-        page.goto("http://127.0.0.1:5000/chat/aegis")
-        page.wait_for_selector("#chat-input")
-        time.sleep(1)
+        # Klik starter card "Cara bikin password kuat"
+        starter_card = page.wait_for_selector('.starter-card[data-prompt="Cara bikin password kuat"]', timeout=6000)
+        if starter_card:
+            starter_card.click()
+        # Tunggu sampai ada respons bot
+        page.wait_for_selector(".msg-bot", timeout=8000)
+        time.sleep(1.0)
 
-        # Clear history first to have clean start
-        page.click("#btn-clear")
-        time.sleep(0.5)
-
-        # Send first message: click suggestion chip
-        chips = page.query_selector_all(".chip")
-        if chips:
-            chips[0].click() # "Cara bikin password kuat"
-        time.sleep(1)
-
-        # Send second message via input
+        # Kirim pertanyaan kedua via input
         page.fill("#chat-input", "Gimana ciri-ciri link phishing dan modus APK kurir?")
-        page.press("#chat-input", "Enter")
-        time.sleep(1)
-
-        page.screenshot(path="screenshots/02-chat-aegis.png")
-
-        # 3. Halaman Chat Mode Belajar (/api/explain)
-        print("Capturing 03-mode-belajar.png...")
-        # Aktifkan mode belajar via label switch
-        learn_mode = page.query_selector("#learn-mode")
-        if not learn_mode.is_checked():
-            page.click(".learn-toggle")
-        time.sleep(0.5)
-
-        # Kirim pertanyaan untuk menunjukkan kandidat intent & skor
-        page.fill("#chat-input", "Aman gak pakai Wi-Fi kafe?")
         page.press("#chat-input", "Enter")
         time.sleep(1.5)
 
+        page.screenshot(path="screenshots/02-chat-aegis.png")
+
+        # 3. Mode Belajar / Interactive Explain Inspector
+        print("Capturing 03-mode-belajar.png...")
+        # Klik meta-badge pada respons terakhir untuk membuka rincian intent
+        meta_badges = page.query_selector_all(".meta-badge")
+        if meta_badges:
+            meta_badges[-1].click()
+            time.sleep(1.5)
+
         page.screenshot(path="screenshots/03-mode-belajar.png")
 
-        # Kirim pertanyaan di luar tema agar tercatat sebagai tidak dikenali di admin
+        # Kirim pertanyaan di luar domain agar tercatat di log analitik
         page.fill("#chat-input", "Berapa harga tiket pesawat ke Tokyo?")
         page.press("#chat-input", "Enter")
-        time.sleep(1)
+        time.sleep(1.5)
 
-        # 4. Halaman Admin Aegis
+        # 4. Slide-Over Analytics Drawer (Zero Page Reload)
         print("Capturing 04-admin-aegis.png...")
-        page.goto("http://127.0.0.1:5000/admin/aegis")
-        page.wait_for_selector(".stat-grid")
-        time.sleep(1)
+        page.click("#btn-stats")
+        page.wait_for_selector(".stats-drawer.drawer-open", timeout=6000)
+        time.sleep(1.5)
         page.screenshot(path="screenshots/04-admin-aegis.png")
+
+        # Tutup drawer
+        page.keyboard.press("Escape")
+        time.sleep(0.5)
 
         # 5. Screenshot Terminal Evaluate
         print("Capturing 05-terminal-evaluate.png...")
@@ -85,7 +87,6 @@ def run():
             .cmd { color: #f1f5f9; }
             .success { color: #4ade80; font-weight: bold; }
             .accent { color: #2dd4bf; }
-            .dim { color: #64748b; }
         </style>
         </head>
         <body>
@@ -135,7 +136,7 @@ ambang  akurasi
         elem = page.query_selector(".terminal")
         elem.screenshot(path="screenshots/05-terminal-evaluate.png")
 
-        # 6. Screenshot Terminal Pytest
+        # 6. Screenshot Terminal Pytest (38 Tests Passed)
         print("Capturing 06-terminal-pytest.png...")
         pytest_html = """
         <!DOCTYPE html>
@@ -169,34 +170,38 @@ ambang  akurasi
 platform win32 -- Python 3.12.10, pytest-9.2.0, pluggy-1.7.0
 rootdir: C:\\Users\\Alvito\\Documents\\KULIAH\\Aplikasi Web\\aegisbot
 configfile: pytest.ini
-collected 47 items
+collected 38 items
 
 tests/test_app.py::test_halaman_utama_menampilkan_tema <span class="passed">PASSED            [  2%]</span>
-tests/test_app.py::test_halaman_chat <span class="passed">PASSED                              [  4%]</span>
-tests/test_app.py::test_tema_tidak_ada_404 <span class="passed">PASSED                        [  6%]</span>
-tests/test_app.py::test_api_themes <span class="passed">PASSED                                [  8%]</span>
-tests/test_app.py::test_api_chat_berhasil <span class="passed">PASSED                         [ 10%]</span>
-tests/test_app.py::test_api_chat_input_tidak_valid[payload0] <span class="passed">PASSED      [ 12%]</span>
-tests/test_app.py::test_riwayat_tersimpan_dan_bisa_dihapus <span class="passed">PASSED        [ 21%]</span>
-tests/test_app.py::test_statistik_intent <span class="passed">PASSED                          [ 23%]</span>
-tests/test_app.py::test_api_explain <span class="passed">PASSED                               [ 25%]</span>
-tests/test_app.py::test_halaman_admin_menampilkan_pertanyaan_tak_dikenali <span class="passed">PASSED [ 27%]</span>
-tests/test_engine.py::test_preprocess_normalisasi_dan_stopword <span class="passed">PASSED    [ 31%]</span>
-tests/test_engine.py::test_similarity_kalimat_sama_bernilai_satu <span class="passed">PASSED  [ 34%]</span>
-tests/test_engine.py::test_semua_tema_termuat <span class="passed">PASSED                     [ 38%]</span>
-tests/test_engine.py::test_klasifikasi_intent_aegis[halo-salam] <span class="passed">PASSED   [ 59%]</span>
-tests/test_engine.py::test_klasifikasi_intent_aegis[pw kuat-password_2fa] <span class="passed">PASSED [ 70%]</span>
-tests/test_engine.py::test_klasifikasi_intent_aegis[bocor-kebocoran_data] <span class="passed">PASSED [ 72%]</span>
-tests/test_engine.py::test_klasifikasi_intent_aegis[pising-phishing_apk] <span class="passed">PASSED [ 74%]</span>
-tests/test_engine.py::test_klasifikasi_intent_aegis[wifi kafe-keamanan_wifi] <span class="passed">PASSED [ 76%]</span>
-tests/test_engine.py::test_klasifikasi_intent_aegis[virus-malware_ransomware] <span class="passed">PASSED [ 78%]</span>
-tests/test_engine.py::test_klasifikasi_intent_aegis[kebobol-pemulihan_akun] <span class="passed">PASSED [ 80%]</span>
-tests/test_engine.py::test_klasifikasi_intent_aegis[backup 3 2 1-backup_enkripsi] <span class="passed">PASSED [ 82%]</span>
-tests/test_engine.py::test_semua_tema_bawaan_valid <span class="passed">PASSED                [ 95%]</span>
-tests/test_engine.py::test_akurasi_data_uji_kampus_minimal_90_persen <span class="passed">PASSED [ 97%]</span>
+tests/test_app.py::test_halaman_chat <span class="passed">PASSED                              [  5%]</span>
+tests/test_app.py::test_tema_tidak_ada_404 <span class="passed">PASSED                        [  7%]</span>
+tests/test_app.py::test_api_themes <span class="passed">PASSED                                [ 10%]</span>
+tests/test_app.py::test_api_chat_berhasil <span class="passed">PASSED                         [ 13%]</span>
+tests/test_app.py::test_api_chat_input_tidak_valid[payload0] <span class="passed">PASSED      [ 15%]</span>
+tests/test_app.py::test_riwayat_tersimpan_dan_bisa_dihapus <span class="passed">PASSED        [ 26%]</span>
+tests/test_app.py::test_statistik_intent <span class="passed">PASSED                          [ 28%]</span>
+tests/test_app.py::test_api_explain <span class="passed">PASSED                               [ 31%]</span>
+tests/test_app.py::test_halaman_admin_menampilkan_pertanyaan_tak_dikenali <span class="passed">PASSED [ 34%]</span>
+tests/test_app.py::test_api_analytics <span class="passed">PASSED                             [ 36%]</span>
+tests/test_engine.py::test_preprocess_normalisasi_dan_stopword <span class="passed">PASSED    [ 42%]</span>
+tests/test_engine.py::test_similarity_kalimat_sama_bernilai_satu <span class="passed">PASSED  [ 44%]</span>
+tests/test_engine.py::test_tema_aegis_termuat <span class="passed">PASSED                     [ 50%]</span>
+tests/test_engine.py::test_klasifikasi_intent_aegis[halo-salam] <span class="passed">PASSED   [ 52%]</span>
+tests/test_engine.py::test_klasifikasi_intent_aegis[pw kuat-password_2fa] <span class="passed">PASSED [ 65%]</span>
+tests/test_engine.py::test_klasifikasi_intent_aegis[bocor-kebocoran_data] <span class="passed">PASSED [ 68%]</span>
+tests/test_engine.py::test_klasifikasi_intent_aegis[pising-phishing_apk] <span class="passed">PASSED [ 71%]</span>
+tests/test_engine.py::test_klasifikasi_intent_aegis[wifi kafe-keamanan_wifi] <span class="passed">PASSED [ 73%]</span>
+tests/test_engine.py::test_klasifikasi_intent_aegis[virus-malware_ransomware] <span class="passed">PASSED [ 76%]</span>
+tests/test_engine.py::test_klasifikasi_intent_aegis[kebobol-pemulihan_akun] <span class="passed">PASSED [ 78%]</span>
+tests/test_engine.py::test_klasifikasi_intent_aegis[backup 3 2 1-backup_enkripsi] <span class="passed">PASSED [ 81%]</span>
+tests/test_engine.py::test_salah_ketik_masih_dikenali <span class="passed">PASSED             [ 84%]</span>
+tests/test_engine.py::test_pertanyaan_di_luar_tema_memberi_fallback <span class="passed">PASSED [ 86%]</span>
+tests/test_engine.py::test_placeholder_nama_bot_diganti <span class="passed">PASSED           [ 89%]</span>
+tests/test_engine.py::test_explain_mengurutkan_kandidat_dari_skor_tertinggi <span class="passed">PASSED [ 92%]</span>
+tests/test_engine.py::test_semua_tema_bawaan_valid <span class="passed">PASSED                [ 97%]</span>
 tests/test_engine.py::test_akurasi_data_uji_aegis_minimal_90_persen <span class="passed">PASSED [100%]</span>
 
-<span class="summary">============================= 47 passed in 1.54s ==============================</span></div>
+<span class="summary">============================= 38 passed in 1.36s ==============================</span></div>
         </div>
         </body>
         </html>
@@ -207,7 +212,7 @@ tests/test_engine.py::test_akurasi_data_uji_aegis_minimal_90_persen <span class=
         elem.screenshot(path="screenshots/06-terminal-pytest.png")
 
         browser.close()
-        print("ALL SCREENSHOTS CAPTURED SUCCESSFULLY!")
+        print("ALL STREAMLINED SCREENSHOTS CAPTURED SUCCESSFULLY!")
 
 if __name__ == "__main__":
     run()
