@@ -6,7 +6,9 @@ Jalankan:
 lalu buka http://127.0.0.1:5000
 """
 import os
+import random
 import uuid
+from datetime import date
 from pathlib import Path
 
 from flask import Flask, abort, jsonify, render_template, request, session
@@ -51,6 +53,18 @@ def create_app(config: dict | None = None) -> Flask:
         if kunci and request.args.get("key") != kunci:
             abort(403, description="Kunci admin salah atau tidak ada")
 
+    def get_daily_suggestions(theme: dict, count: int = 4, target_date: date | None = None) -> list[dict]:
+        """Pilih saran topik harian secara deterministik berdasarkan tanggal."""
+        hari = target_date or date.today()
+        pool = theme.get("daily_suggestions")
+        if pool:
+            rng = random.Random(f"{theme['id']}:{hari.isoformat()}")
+            return rng.sample(pool, min(count, len(pool)))
+        return [
+            {"icon": "💬", "title": s, "subtitle": "Tanya topik ini", "prompt": s}
+            for s in theme.get("suggestions", [])[:count]
+        ]
+
     # ------------------------------------------------------------------ #
     # Halaman (mengembalikan HTML)
     # ------------------------------------------------------------------ #
@@ -58,12 +72,24 @@ def create_app(config: dict | None = None) -> Flask:
     def index():
         # Karena AegisBot adalah asisten utama, rute / langsung membuka chat tanpa perantara
         theme = get_theme_or_404("aegis")
-        return render_template("chat.html", theme=theme)
+        hari = date.today()
+        return render_template(
+            "chat.html",
+            theme=theme,
+            daily_suggestions=get_daily_suggestions(theme, target_date=hari),
+            today_label=hari.strftime("%d %b %Y"),
+        )
 
     @app.route("/chat/<theme_id>")
     def chat_page(theme_id):
         theme = get_theme_or_404(theme_id)
-        return render_template("chat.html", theme=theme)
+        hari = date.today()
+        return render_template(
+            "chat.html",
+            theme=theme,
+            daily_suggestions=get_daily_suggestions(theme, target_date=hari),
+            today_label=hari.strftime("%d %b %Y"),
+        )
 
     @app.route("/admin/<theme_id>")
     def admin_page(theme_id):
@@ -86,6 +112,19 @@ def create_app(config: dict | None = None) -> Flask:
             {"id": t["id"], "name": t["name"], "description": t["description"]}
             for t in themes.values()
         ])
+
+    @app.get("/api/suggestions/<theme_id>")
+    def api_suggestions(theme_id):
+        theme = get_theme_or_404(theme_id)
+        date_param = request.args.get("date")
+        try:
+            target_date = date.fromisoformat(date_param) if date_param else date.today()
+        except ValueError:
+            return jsonify({"error": "Format tanggal harus YYYY-MM-DD"}), 400
+        return jsonify({
+            "date": target_date.isoformat(),
+            "suggestions": get_daily_suggestions(theme, target_date=target_date),
+        })
 
     @app.get("/api/analytics/<theme_id>")
     def api_analytics(theme_id):

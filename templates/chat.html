@@ -45,12 +45,12 @@
   <!-- Area pesan -->
   <div id="messages" class="messages" aria-live="polite"></div>
 
-  <!-- Baris saran pertanyaan fleksibel (otomatis ciut saat chat berjalan, bisa di-toggle) -->
-  <div id="suggestions-bar" class="suggestions" aria-label="Saran pertanyaan cepat">
+  <!-- Baris saran pertanyaan harian dinamis -->
+  <div id="suggestions-bar" class="suggestions" aria-label="Rekomendasi topik hari ini">
     <div class="suggestions-inner">
-      <span class="suggestions-label" aria-hidden="true">Saran:</span>
-      {% for s in theme.suggestions %}
-      <button type="button" class="chip">{{ s }}</button>
+      <span class="suggestions-label" title="Rekomendasi berubah setiap hari ({{ today_label }})">Topik Hari Ini:</span>
+      {% for item in daily_suggestions %}
+      <button type="button" class="chip">{{ item.prompt }}</button>
       {% endfor %}
     </div>
   </div>
@@ -156,7 +156,9 @@
     id: {{ theme.id | tojson }},
     avatar: {{ theme.avatar | tojson }},
     greeting: {{ theme.greeting | tojson }},
-    suggestions: {{ theme.suggestions | tojson }}
+    suggestions: {{ theme.suggestions | tojson }},
+    dailySuggestions: {{ daily_suggestions | tojson }},
+    todayLabel: {{ today_label | tojson }}
   };
 </script>
 <script src="{{ url_for('static', filename='js/chat.js') }}"></script>

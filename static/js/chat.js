@@ -225,8 +225,27 @@ async function createExplainPanel(text) {
 // ---------------------------------------------------------------------
 // Welcoming Starter Cards (Inside Messages on Empty State)
 // ---------------------------------------------------------------------
+function escapeHtml(str) {
+  return String(str ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function renderWelcomeState() {
   messagesEl.innerHTML = "";
+
+  const dailyCards = (THEME.dailySuggestions || []).map((item) => `
+    <button type="button" class="starter-card" data-prompt="${escapeHtml(item.prompt)}">
+      <div class="starter-card-icon">${escapeHtml(item.icon)}</div>
+      <div class="starter-card-text">
+        <strong>${escapeHtml(item.title)}</strong>
+        <span>${escapeHtml(item.subtitle)}</span>
+      </div>
+    </button>
+  `).join("");
 
   const welcomeBox = document.createElement("div");
   welcomeBox.className = "welcome-box";
@@ -239,36 +258,10 @@ function renderWelcomeState() {
       </div>
       <h2>Halo, saya AegisBot 🛡️</h2>
       <p>${THEME.greeting}</p>
+      <div class="daily-badge">✨ Rekomendasi Hari Ini · ${escapeHtml(THEME.todayLabel || "")}</div>
     </div>
     <div class="starter-cards-grid">
-      <button type="button" class="starter-card" data-prompt="Cara bikin password kuat">
-        <div class="starter-card-icon">🔑</div>
-        <div class="starter-card-text">
-          <strong>Password & 2FA</strong>
-          <span>Passphrase aman & Bitwarden</span>
-        </div>
-      </button>
-      <button type="button" class="starter-card" data-prompt="Ciri link phishing & APK kurir">
-        <div class="starter-card-icon">🎣</div>
-        <div class="starter-card-text">
-          <strong>Deteksi Phishing</strong>
-          <span>Scam APK kurir & tautan palsu</span>
-        </div>
-      </button>
-      <button type="button" class="starter-card" data-prompt="Aman gak pakai Wi-Fi publik?">
-        <div class="starter-card-icon">📶</div>
-        <div class="starter-card-text">
-          <strong>Keamanan Wi-Fi</strong>
-          <span>Mitigasi MitM, VPN & DNS DoH</span>
-        </div>
-      </button>
-      <button type="button" class="starter-card" data-prompt="Solusi akun kena hack">
-        <div class="starter-card-icon">🚨</div>
-        <div class="starter-card-text">
-          <strong>Akun Diretas</strong>
-          <span>Pertolongan pertama akun dibajak</span>
-        </div>
-      </button>
+      ${dailyCards}
     </div>
   `;
 

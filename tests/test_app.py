@@ -96,3 +96,18 @@ def test_admin_key_melindungi_halaman_admin(tmp_path):
     assert c.get("/admin/aegis").status_code == 403
     assert c.get("/api/stats/aegis").status_code == 403
     assert c.get("/admin/aegis?key=rahasia").status_code == 200
+
+
+def test_api_daily_suggestions_berubah_tiap_hari(client):
+    r1 = client.get("/api/suggestions/aegis?date=2026-11-19")
+    r2 = client.get("/api/suggestions/aegis?date=2026-11-19")
+    r3 = client.get("/api/suggestions/aegis?date=2026-11-20")
+    assert r1.status_code == 200
+    assert r3.status_code == 200
+    d1 = r1.get_json()["suggestions"]
+    d2 = r2.get_json()["suggestions"]
+    d3 = r3.get_json()["suggestions"]
+    assert len(d1) == 4
+    assert d1 == d2
+    assert [s["prompt"] for s in d1] != [s["prompt"] for s in d3]
+    assert client.get("/api/suggestions/aegis?date=invalid").status_code == 400

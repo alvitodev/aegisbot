@@ -26,8 +26,8 @@ def run():
 
         # 2. Halaman Chat AegisBot (Percakapan Aktif)
         print("Capturing 02-chat-aegis.png...")
-        # Klik starter card "Cara bikin password kuat"
-        starter_card = page.wait_for_selector('.starter-card[data-prompt="Cara bikin password kuat"]', timeout=6000)
+        # Klik starter card pertama dari rekomendasi harian
+        starter_card = page.wait_for_selector('.starter-card', timeout=6000)
         if starter_card:
             starter_card.click()
         # Tunggu sampai ada respons bot

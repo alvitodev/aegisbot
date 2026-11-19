@@ -12,6 +12,128 @@
     "Aman gak pakai Wi-Fi publik?",
     "Solusi akun kena hack"
   ],
+  "daily_suggestions": [
+    {
+      "icon": "🔑",
+      "title": "Password Kuat NIST",
+      "subtitle": "Aturan passphrase 15+ karakter",
+      "prompt": "Cara bikin password kuat"
+    },
+    {
+      "icon": "🛡️",
+      "title": "Passkey & 2FA",
+      "subtitle": "Beda Authenticator vs SMS OTP",
+      "prompt": "Beda 2FA Authenticator dengan SMS"
+    },
+    {
+      "icon": "📦",
+      "title": "Scam APK Kurir",
+      "subtitle": "Modus resi & undangan WhatsApp",
+      "prompt": "Kiriman file APK kurir di WhatsApp"
+    },
+    {
+      "icon": "🎣",
+      "title": "Deteksi Phishing",
+      "subtitle": "Cek link palsu di VirusTotal",
+      "prompt": "Ciri link phishing dan cara ceknya"
+    },
+    {
+      "icon": "📶",
+      "title": "Wi-Fi Publik Aman",
+      "subtitle": "Mitigasi Evil Twin & MitM",
+      "prompt": "Aman gak pakai Wi-Fi publik?"
+    },
+    {
+      "icon": "🚨",
+      "title": "Akun Diretas",
+      "subtitle": "Pertolongan pertama akun dibajak",
+      "prompt": "Solusi akun kena hack"
+    },
+    {
+      "icon": "💳",
+      "title": "QRIS Palsu",
+      "subtitle": "Modus stiker QRIS ditimpa",
+      "prompt": "Cara bedakan QRIS asli dan palsu"
+    },
+    {
+      "icon": "📱",
+      "title": "Serangan SIM Swap",
+      "subtitle": "Sinyal HP mendadak hilang total",
+      "prompt": "Apa itu serangan SIM swap?"
+    },
+    {
+      "icon": "🔌",
+      "title": "Juice Jacking USB",
+      "subtitle": "Bahaya cas HP di port USB umum",
+      "prompt": "Aman gak ngecas di port USB bandara?"
+    },
+    {
+      "icon": "🗣️",
+      "title": "AI Voice Deepfake",
+      "subtitle": "Penipuan kloning suara keluarga",
+      "prompt": "Cara deteksi penipuan suara AI deepfake"
+    },
+    {
+      "icon": "💾",
+      "title": "Backup 3-2-1",
+      "subtitle": "Strategi anti-ransomware BSSN",
+      "prompt": "Gimana aturan backup 3 2 1?"
+    },
+    {
+      "icon": "🔒",
+      "title": "Enkripsi Disk & File",
+      "subtitle": "Pakai VeraCrypt & BitLocker",
+      "prompt": "Cara enkripsi file penting pakai VeraCrypt"
+    },
+    {
+      "icon": "💬",
+      "title": "WhatsApp Dibajak",
+      "subtitle": "Tendang sesi asing & pasang PIN",
+      "prompt": "Solusi akun WhatsApp dibajak orang"
+    },
+    {
+      "icon": "🕵️",
+      "title": "Cek Email Bocor",
+      "subtitle": "Verifikasi di Have I Been Pwned",
+      "prompt": "Cara cek email kena kebocoran data"
+    },
+    {
+      "icon": "🔐",
+      "title": "Password Manager",
+      "subtitle": "Bitwarden vs KeePassXC offline",
+      "prompt": "Rekomendasi password manager yang aman"
+    },
+    {
+      "icon": "🌐",
+      "title": "VPN & Private DNS",
+      "subtitle": "WireGuard, Tailscale & DoH",
+      "prompt": "Fungsi VPN dan DNS over HTTPS"
+    },
+    {
+      "icon": "🦠",
+      "title": "Darurat Ransomware",
+      "subtitle": "Isolasi jaringan & No More Ransom",
+      "prompt": "Pertolongan pertama komputer kena ransomware"
+    },
+    {
+      "icon": "⚖️",
+      "title": "Pinjol Ilegal",
+      "subtitle": "Aturan akses kontak & cek OJK",
+      "prompt": "Bahaya aplikasi pinjol ilegal akses kontak"
+    },
+    {
+      "icon": "🛒",
+      "title": "Belanja Online Aman",
+      "subtitle": "Hindari COD palsu & transfer luar",
+      "prompt": "Tips aman belanja online di marketplace"
+    },
+    {
+      "icon": "📢",
+      "title": "Lapor Penipuan",
+      "subtitle": "CekRekening.id, IASC OJK & BSSN",
+      "prompt": "Lapor penipuan online kemana di Indonesia?"
+    }
+  ],
   "fallback": [
     "Maaf, saya fokus pada keamanan siber dan privasi digital. Pertanyaan ini berada di luar domain saya. Coba tanyakan seputar password, passkey, 2FA, phishing/APK scam, Wi-Fi publik, QRIS palsu, atau pemulihan akun.",
     "Topik tersebut belum masuk ke basis pengetahuan saya. Sebagai asisten pertahanan siber, saya siap membantu soal standar sandi NIST, kebocoran email, penipuan OTP/social engineering, malware, hingga backup 3-2-1.",
