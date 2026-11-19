@@ -4,8 +4,8 @@
   "bot_name": "AegisBot",
   "avatar": "🛡️",
   "color": "#0f766e",
-  "description": "Menjawab pertanyaan seputar keamanan password, 2FA, deteksi phishing/APK scam, keamanan Wi-Fi, dan tanggap insiden malware.",
-  "greeting": "Halo! Saya AegisBot 🛡️, asisten pertahanan siber dan privasi digitalmu. Tanyakan soal keamanan password & 2FA, cek kebocoran email, deteksi phishing/file APK, keamanan Wi-Fi publik, atau penanganan malware & akun dibajak.",
+  "description": "Menjawab pertanyaan seputar keamanan password, passkey & 2FA, deteksi phishing/APK scam, keamanan Wi-Fi & VPN, QRIS palsu, SIM swap, dan tanggap insiden malware/ransomware.",
+  "greeting": "Halo! Saya AegisBot 🛡️, asisten pertahanan siber dan privasi digitalmu. Tanyakan soal standar password NIST & Passkey, Password Manager, kebocoran data, phishing & APK kurir, QRIS palsu, keamanan Wi-Fi/VPN, atau pertolongan pertama malware & akun dibajak.",
   "suggestions": [
     "Cara bikin password kuat",
     "Ciri link phishing & APK kurir",
@@ -13,8 +13,11 @@
     "Solusi akun kena hack"
   ],
   "fallback": [
-    "Maaf, saya fokus pada keamanan siber dan privasi digital. Pertanyaan ini di luar topik yang saya kuasai. Ada yang ingin kamu tanyakan seputar password, phishing, Wi-Fi, atau malware?",
-    "Topik tersebut belum saya pahami. Sebagai asisten keamanan siber, saya bisa membantumu seputar kata sandi kuat, verifikasi 2FA, deteksi scam/phishing, keamanan jaringan Wi-Fi, hingga pemulihan akun."
+    "Maaf, saya fokus pada keamanan siber dan privasi digital. Pertanyaan ini berada di luar domain saya. Coba tanyakan seputar password, passkey, 2FA, phishing/APK scam, Wi-Fi publik, QRIS palsu, atau pemulihan akun.",
+    "Topik tersebut belum masuk ke basis pengetahuan saya. Sebagai asisten pertahanan siber, saya siap membantu soal standar sandi NIST, kebocoran email, penipuan OTP/social engineering, malware, hingga backup 3-2-1.",
+    "Hmm, sepertinya itu di luar topik keamanan digital. Kamu bisa bertanya tentang cara cek email bocor, beda 2FA Authenticator vs Passkey, bahaya USB charging umum, atau langkah darurat saat terkena ransomware.",
+    "Saya belum memiliki jawaban untuk topik itu karena khusus dirancang untuk edukasi cyber hygiene dan respons insiden siber. Ada kendala keamanan akun atau perangkat yang sedang kamu hadapi?",
+    "Permintaan di luar cakupan keamanan siber. Yuk kembali ke topik proteksi digital—misalnya cara mengamankan WhatsApp, mendeteksi link palsu, atau memilih Password Manager yang aman."
   ],
   "intents": [
     {
@@ -28,11 +31,25 @@
         "assalamualaikum",
         "permisi",
         "halo aegisbot",
-        "halo asisten siber"
+        "halo asisten siber",
+        "hai bot",
+        "selamat datang",
+        "permisi mau tanya",
+        "halo min",
+        "pagi aegisbot",
+        "siang aegisbot",
+        "sore aegisbot",
+        "malam aegisbot",
+        "halo kak",
+        "tes bot"
       ],
       "responses": [
-        "Halo! Saya AegisBot, siap membantumu menjaga keamanan data, privasi, dan akun digital. Ada kendala keamanan atau yang ingin kamu tanyakan?",
-        "Halo dan salam keamanan siber! Tetap waspada di ruang digital. Apa yang bisa saya bantu terkait proteksi perangkat atau akunmu hari ini?"
+        "Halo! Saya AegisBot, siap membantumu menjaga keamanan data, privasi, dan akun digital. Ada kendala keamanan atau hal yang ingin kamu tanyakan?",
+        "Halo dan salam keamanan siber! Tetap waspada di ruang digital. Apa yang bisa saya bantu terkait proteksi perangkat atau akunmu hari ini?",
+        "Hai! Senang bisa terhubung. Kamu bisa konsultasi soal password, 2FA/Passkey, modus penipuan APK WhatsApp, Wi-Fi publik, atau pemulihan akun yang diretas.",
+        "Selamat datang di AegisBot! Ceritakan saja kendala keamanan digitalmu atau pilih salah satu topik keamanan siber yang ingin kamu pelajari.",
+        "Halo! Siap siaga mendampingi pertahanan digitalmu. Ada tautan mencurigakan, masalah akun, atau tips privasi yang ingin kita bahas?",
+        "Salam aman digital! Saya AegisBot. Silakan ketik pertanyaanmu seputar cyber hygiene, pencegahan scam, atau penanganan malware."
       ]
     },
     {
@@ -43,11 +60,23 @@
         "oke terima kasih",
         "mantap terima kasih",
         "sip terima kasih",
-        "terima kasih infonya"
+        "terima kasih infonya",
+        "makasih ya sangat membantu",
+        "thanks aegisbot",
+        "ok makasih penjelasannya",
+        "terima kasih banyak bantuannya",
+        "mantap infonya makasih",
+        "siap makasih",
+        "makasih banget infonya",
+        "oke siap terima kasih",
+        "thank you bot"
       ],
       "responses": [
         "Sama-sama! Selalu ingat untuk waspada terhadap segala potensi ancaman siber di sekitarmu.",
-        "Senang bisa membantu. Tetap jaga kerahasiaan data pribadi, kata sandi, dan kredensialmu ya!"
+        "Senang bisa membantu. Tetap jaga kerahasiaan data pribadi, PIN, kata sandi, dan kode OTP kamu ya!",
+        "Dengan senang hati! Jangan ragu bertanya lagi kapan saja jika menemui tautan aneh atau aktivitas akun yang mencurigakan.",
+        "Sama-sama! Keamanan digital adalah kebiasaan harian—pastikan update perangkat dan 2FA selalu aktif.",
+        "Sip, senang informasinya bermanfaat! Tetap skeptis terhadap pesan mendesak yang meminta data atau klik tautan."
       ]
     },
     {
@@ -58,11 +87,23 @@
         "bye",
         "selesai",
         "sudah cukup",
-        "terima kasih sampai jumpa"
+        "terima kasih sampai jumpa",
+        "pamit dulu ya",
+        "oke cukup sekian",
+        "sampai ketemu lagi",
+        "saya keluar dulu",
+        "udahan dulu makasih",
+        "goodbye",
+        "see you bot",
+        "oke dadah",
+        "cukup dulu ya"
       ],
       "responses": [
         "Sampai jumpa! Jangan ragu kembali berkonsultasi jika menemui aktivitas mencurigakan di internet.",
-        "Sesi selesai. Selalu amankan perangkat, perbarui aplikasi secara rutin, dan jaga privasimu!"
+        "Sesi selesai. Selalu amankan perangkat, perbarui aplikasi secara rutin, dan jaga privasimu!",
+        "Sampai bertemu lagi! Ingat prinsip utama: verifikasi sebelum klik, dan jangan pernah bagikan OTP ke siapa pun.",
+        "Oke, sampai jumpa! Semoga akun dan perangkatmu selalu terlindungi dari ancaman siber.",
+        "Pamit aman! Jangan lupa aktifkan kunci layar biometrik dan backup data penting secara berkala."
       ]
     },
     {
@@ -74,11 +115,19 @@
         "kamu bot apa",
         "aegisbot itu apa",
         "kamu bisa apa",
-        "jelaskan tentang dirimu"
+        "jelaskan tentang dirimu",
+        "fungsi bot ini apa",
+        "kamu dibuat untuk apa",
+        "apa saja kemampuanmu",
+        "siapa pengembang aegisbot",
+        "tentang aegisbot"
       ],
       "responses": [
-        "Saya {nama_bot}, asisten keamanan siber yang siap membantumu melindungi data pribadi, mencegah penipuan online, dan menangani insiden digital.",
-        "Kenalkan, saya {nama_bot}! Fokus saya adalah memberikan edukasi kebersihan siber (cyber hygiene) dan panduan pertolongan pertama saat terjadi insiden malware atau akun dibajak."
+        "Saya {nama_bot}, asisten keamanan siber berbasis aturan yang siap membantumu melindungi data pribadi, mencegah penipuan online, dan menangani insiden digital.",
+        "Kenalkan, saya {nama_bot}! Fokus saya adalah memberikan edukasi kebersihan siber (cyber hygiene) berbasis standar NIST, CISA, BSSN, dan OJK serta panduan pertolongan pertama insiden siber.",
+        "Saya {nama_bot}, pemandu pertahanan digitalmu. Saya bisa menjelaskan cara membuat passphrase aman, membedakan link phishing dan file APK scam, mengamankan Wi-Fi, hingga memulihkan akun yang dibajak.",
+        "Nama saya {nama_bot}. Berbeda dengan chatbot umum, pengetahuan saya dikurasi khusus untuk topik keamanan informasi, privasi digital, anti-scam, dan mitigasi malware tanpa halusinasi.",
+        "Saya {nama_bot}! Anggap saya sebagai pertolongan pertama (first-responder) saat kamu ragu dengan tautan mencurigakan, pesan kurir APK, atau butuh panduan mengamankan akun."
       ]
     },
     {
@@ -89,28 +138,105 @@
         "tanggal berapa hari ini",
         "hari ini tanggal berapa",
         "cek waktu server",
-        "pukul berapa sekarang"
+        "pukul berapa sekarang",
+        "waktu saat ini",
+        "tanggal dan jam sekarang",
+        "hari ini tanggal berapa ya",
+        "sekarang pukul berapa"
       ],
       "responses": [
-        "Waktu sistem saat ini menunjukkan pukul {waktu} pada tanggal {tanggal}. Jangan lupa cek log aktivitas akunmu secara berkala!",
-        "Saat ini jam server mencatat pukul {waktu}, tanggal {tanggal}. Pastikan zona waktu perangkatmu selalu sinkron untuk keperluan autentikasi 2FA."
+        "Waktu sistem saat ini menunjukkan pukul {waktu} pada tanggal {tanggal}. Jangan lupa cek log aktivitas login akunmu secara berkala!",
+        "Saat ini jam server mencatat pukul {waktu}, tanggal {tanggal}. Pastikan jam perangkatmu selalu tersinkronisasi otomatis agar kode 2FA TOTP tidak meleset.",
+        "Sekarang pukul {waktu} WIB/waktu sistem, tanggal {tanggal}. Sinkronisasi waktu yang akurat sangat penting untuk validitas kode Authenticator dan sertifikat HTTPS.",
+        "Terbaca pukul {waktu} pada tanggal {tanggal}. Jika kamu melihat catatan login asing di luar jam aktivitasmu, segera ganti kata sandi dan cabut sesi aktif!"
       ]
     },
     {
       "tag": "password_2fa",
       "patterns": [
         "cara bikin password kuat",
-        "rekomendasi password manager",
-        "cara aktifkan 2fa",
-        "autentikasi dua faktor",
         "password yang aman",
-        "simpan password dimana",
-        "beda 2fa authenticator dengan sms",
-        "tips membuat passphrase aman"
+        "tips membuat passphrase aman",
+        "aturan password nist terbaru",
+        "panjang password minimal berapa karakter",
+        "perlu ganti password berkala gak",
+        "apakah password harus pakai simbol dan angka",
+        "contoh passphrase yang kuat dan mudah diingat",
+        "kenapa gak boleh pakai password yang sama",
+        "cara buat kata sandi yang tidak mudah ditebak",
+        "sandi yang bagus seperti apa",
+        "kriteria password aman",
+        "gimana cara bikin sandi anti hack",
+        "rekomendasi panjang password akun bank",
+        "bahaya pakai tanggal lahir untuk password",
+        "apa itu serangan brute force dan credential stuffing",
+        "bagaimana membuat password unik tiap aplikasi",
+        "tips mengingat password panjang tanpa lupa"
       ],
       "responses": [
-        "Gunakan passphrase minimal 12 karakter yang memadukan 4 kata acak tanpa pola umum (contoh: 'kuda-menari-kopi-dingin'). Simpan dan kelola di Password Manager tepercaya seperti Bitwarden atau KeePassXC. Wajib aktifkan 2FA berbasis aplikasi Authenticator (Google Authenticator / Aegis) daripada SMS karena SMS rawan serangan SIM swap.",
-        "Kunci keamanan akun dimulai dari kata sandi unik per layanan: jangan pernah mendaur ulang kata sandi! Gunakan Password Manager agar tidak perlu menghafal puluhan kunci rumit, dan selalu nyalakan Two-Factor Authentication (2FA) berbasis TOTP untuk mencegah pembobolan credential stuffing."
+        "Mengacu pada standar NIST SP 800-63B Revisi 4, kekuatan kata sandi ditentukan oleh PANJANGnya, bukan kerumitan simbol yang dipaksakan. Gunakan passphrase minimal 15 karakter (jika tanpa 2FA) berupa 4–5 kata acak tanpa pola umum, misalnya 'kompas-hujan-sepeda-kopi'.",
+        "Jangan buat password seperti 'Budi123!' karena pola huruf besar-angka-simbol seperti itu sangat mudah ditebak kamus peretas. NIST menyarankan passphrase panjang (mendukung hingga 64+ karakter termasuk spasi) yang unik untuk setiap akun.",
+        "Prinsip utama password aman: 1) Panjang minimal 12–15 karakter, 2) Unik di setiap layanan (jangan pernah daur ulang sandi agar tidak kena credential stuffing), 3) Hindari tanggal lahir, nama hewan, atau kata kamus tunggal.",
+        "Tahukah kamu? Menurut panduan NIST terbaru, kamu TIDAK perlu mengganti password secara rutin setiap 90 hari jika tidak ada indikasi kebocoran—karena rotasi paksa justru membuat orang memakai pola sandi yang lemah dan mudah ditebak.",
+        "Gunakan metode Diceware atau rangkaian 4+ kata acak berbahasa Indonesia/campuran yang tidak membentuk kalimat logis sehari-hari. Semakin panjang passphrase-nya, semakin eksponensial waktu yang dibutuhkan serangan brute-force untuk membobolnya.",
+        "Aturan emas kata sandi: satu akun, satu sandi unik. Jika satu situs mengalami kebocoran data, akun bank dan email utamamu tetap aman karena tidak memakai kombinasi yang sama."
+      ]
+    },
+    {
+      "tag": "password_manager",
+      "patterns": [
+        "rekomendasi password manager",
+        "simpan password dimana",
+        "aplikasi penyimpan sandi yang aman",
+        "bitwarden atau keepassxc bagus mana",
+        "aman gak simpan password di catatan hp",
+        "bahaya simpan password di notepad atau whatsapp",
+        "cara kerja password manager",
+        "aplikasi pengelola kata sandi terbaik",
+        "apakah password manager aman",
+        "lupa banyak password solusinya apa",
+        "keamanan enkripsi zero knowledge di bitwarden",
+        "cara pakai password generator biar gak pusing",
+        "apakah autofill password manager bisa cegah phishing",
+        "perbedaan password manager cloud dan offline keepass"
+      ],
+      "responses": [
+        "Simpan seluruh kata sandi di Password Manager terenkripsi seperti Bitwarden (open-source, sinkronisasi cloud) atau KeePassXC (offline di perangkat lokal). Kamu cukup menghafal satu Master Password yang sangat kuat.",
+        "Jangan pernah menyimpan password di aplikasi Notes/Catatan HP biasa, WhatsApp 'chat ke diri sendiri', atau file teks tanpa enkripsi. Jika ponsel atau akun cloud-mu diakses orang lain, semua kredensial langsung terbaca.",
+        "Password Manager seperti Bitwarden, Proton Pass, atau 1Password menggunakan enkripsi zero-knowledge (AES-256 / XChaCha20). Artinya, penyedia layanan pun tidak bisa melihat isi brankas sandimu—hanya Master Password milikmu yang bisa membukanya.",
+        "Selain menyimpan sandi, Password Manager memiliki fitur generator sandi acak 20+ karakter dan auto-fill yang hanya mengisi sandi di domain asli—secara tidak langsung melindungimu dari situs phishing palsu!",
+        "Jika kamu lebih suka kontrol penuh tanpa cloud, pilih KeePassXC di komputer atau KeePassDX di Android. Simpan file database `.kdbx`-nya di penyimpanan terenkripsi dan backup secara berkala."
+      ]
+    },
+    {
+      "tag": "autentikasi_2fa_passkey",
+      "patterns": [
+        "cara aktifkan 2fa",
+        "autentikasi dua faktor",
+        "beda 2fa authenticator dengan sms",
+        "apa itu passkey dan fido2",
+        "kenapa 2fa sms tidak disarankan",
+        "aplikasi authenticator yang aman apa",
+        "cara kerja yubikey atau security key",
+        "lebih aman passkey atau otp authenticator",
+        "rekomendasi aplikasi totp 2fa",
+        "apa itu mfa tahan phishing",
+        "keunggulan passkeys dibanding password",
+        "cara pakai google authenticator atau aegis",
+        "mfa itu apa sih",
+        "perlu pakai 2fa di semua akun gak",
+        "kalau hp hilang kode authenticator gimana",
+        "pentingnya backup recovery codes 2fa",
+        "keamanan akun tanpa password pakai passkey",
+        "bagaimana cara kerja totp 6 digit"
+      ],
+      "responses": [
+        "Menurut CISA, urutan keamanan MFA dari terkuat hingga terlemah adalah: 1) FIDO2 / Passkeys (tahan phishing secara kriptografis), 2) Aplikasi Authenticator TOTP (seperti Aegis, Ente Auth, atau Google Authenticator), dan 3) SMS OTP (paling rentan karena rawan SIM swap & penyadapan).",
+        "Passkey (berbasis standar FIDO2/WebAuthn) menggantikan password dengan pasangan kunci kriptografis yang terikat langsung ke domain situs asli. Jika kamu tertipu membuka link palsu, browser/perangkat menolak mengirim tanda tangan Passkey—jadi kebal terhadap phishing!",
+        "Untuk 2FA berbasis aplikasi (TOTP), di Android sangat disarankan memakai Aegis Authenticator atau Ente Auth karena bersifat open-source dan mendukung backup terenkripsi. Hindari mengandalkan SMS OTP untuk akun email utama, media sosial, maupun perbankan.",
+        "Saat mengaktifkan 2FA di aplikasi Authenticator, kamu wajib menyimpan 'Backup Codes' / 'Recovery Codes' di tempat offline yang aman (atau di brankas terenkripsi). Kode ini penyelamat jika suatu saat ponselmu hilang atau rusak.",
+        "Untuk perlindungan tingkat tinggi (akun admin, email utama, aset kripto), pertimbangkan Hardware Security Key fisik berbasis FIDO2 seperti YubiKey. Penyerang jarak jauh tidak bisa masuk tanpa menyentuh kunci fisik tersebut.",
+        "Mengapa CISA menyarankan meninggalkan SMS 2FA? Karena kode SMS dikirim lewat jaringan seluler yang tidak terenkripsi dan mudah dialihkan melalui teknik SIM swapping atau dicegat oleh proxy phishing real-time (Adversary-in-the-Middle)."
       ]
     },
     {
@@ -118,33 +244,165 @@
       "patterns": [
         "cek email bocor",
         "data pribadi bocor",
-        "apakah email saya aman",
         "kebocoran data breach",
-        "akun kena data breach",
-        "cek kebocoran password",
-        "cara tahu data kita bocor",
-        "langkah mitigasi kebocoran data"
+        "cara cek akun pernah bocor",
+        "email masuk daftar kebocoran",
+        "have i been pwned itu apa",
+        "langkah mitigasi data breach",
+        "cara cek kebocoran data di periksadata",
+        "kalau nik atau data bocor harus bagaimana",
+        "data saya muncul di dark web bagaimana solusinya",
+        "cara mengetahui password pernah bocor",
+        "dampak kebocoran data pribadi",
+        "apa itu data breach dan credential stuffing",
+        "cara tahu nomor hp pernah bocor",
+        "harus ganti password kalau email bocor",
+        "situs cek kebocoran data gratis dan aman"
       ],
       "responses": [
-        "Untuk memeriksa apakah email atau nomor teleponmu terdampak kebocoran data, kunjungi situs 'Have I Been Pwned' (haveibeenpwned.com) atau 'PeriksaData' (periksadata.com). Jika emailmu terdaftar dalam insiden breach, segera ganti password di akun terkait dan aktifkan 2FA!",
-        "Kebocoran data (data breach) umumnya mengekspos username, hash password, atau nomor telepon. Jika data kamu bocor: 1) Ganti password di layanan tersebut dan akun lain yang memakai password serupa, 2) Aktifkan 2FA, 3) Waspadai email atau pesan phishing yang memanfaatkan data bocor tersebut."
+        "Segera periksa apakah emailmu terdampak kebocoran data di situs tepercaya seperti Have I Been Pwned (haveibeenpwned.com) atau PeriksaData.com untuk kasus kebocoran layanan lokal di Indonesia.",
+        "Jika email atau sandimu tercatat pernah bocor (data breach): 1) Segera ganti kata sandi di layanan yang bocor, 2) Ganti juga sandi akun lain jika selama ini memakai kombinasi yang sama, 3) Aktifkan 2FA berbasis Authenticator/Passkey.",
+        "Bahaya utama kebocoran data bukan hanya spam, melainkan serangan 'credential stuffing'—di mana bot peretas mencoba kombinasi email dan password yang bocor tersebut ke ratusan situs lain seperti e-commerce, m-banking, dan email.",
+        "Jika data kependudukan (seperti NIK/nomor HP) ikut bocor, tingkatkan kewaspadaan terhadap penipuan social engineering yang menyebut namamu dan alamat lengkapmu dengan benar agar terlihat meyakinkan. Jangan mudah percaya meski penelepon tahu data pribadimu!",
+        "Aktifkan fitur notifikasi pelanggaran data di Have I Been Pwned ('Notify me') atau pantau via Password Manager seperti Bitwarden yang punya fitur pengecekan password bocor (Exposed Passwords Report)."
       ]
     },
     {
       "tag": "phishing_apk",
       "patterns": [
         "ciri link phishing",
-        "kiriman file apk kurir",
-        "undangan apk whatsapp",
-        "cek link penipuan",
-        "bedakan web asli dan palsu",
-        "scam file apk undangan",
-        "cara periksa url mencurigakan",
-        "bahaya link phishing typosquatting"
+        "link penipuan online",
+        "cara scan link mencurigakan",
+        "ciri situs web palsu",
+        "cara cek link aman atau tidak",
+        "apa itu typosquatting pada domain",
+        "virustotal dan urlscan untuk cek link",
+        "cara bedakan website resmi dan phishing",
+        "dapat link hadiah atau undian mencurigakan",
+        "tautan pendek bitly aman gak diklik",
+        "ciri email phishing penipuan",
+        "bahaya klik link sembarangan",
+        "apakah gembok https pasti aman dari phishing",
+        "cara cek domain asli situs bank",
+        "dapat sms tagihan atau blokir rekening pakai link",
+        "gimana cara tahu link itu jebakan atau asli",
+        "ciri website login palsu pencuri password",
+        "tools gratis untuk cek link berbahaya"
       ],
       "responses": [
-        "Waspada link phishing dan scam APK! Ciri link palsu biasanya menggunakan typosquatting (misal: 'klik-bca-login.xyz' bukan 'klikbca.com') dan memicu urgensi berlebih. Jika menerima tautan mencurigakan, jangan langsung diklik—salin tautan lalu pindai di VirusTotal (virustotal.com) atau URLScan.io.",
-        "Modus penipuan file .apk (seperti surat undangan pernikahan palsu, tagihan PLN, resi paket kurir J&T/SiCepat) di WhatsApp dirancang untuk mencuri SMS OTP perbankan. Jangan pernah menginstal file berekstensi .apk dari chat pribadi dan matikan izin 'Install Unknown Apps' di pengaturan HP!"
+        "Waspadai teknik typosquatting pada URL—yaitu domain yang sengaja dimiripkan dengan situs resmi (misal 'bca-klik-info.xyz' atau 'tokoped1a.com'). Selalu periksa nama domain utama tepat sebelum tanda garis miring pertama (/).",
+        "Jangan langsung klik tautan yang dikirim lewat SMS, WhatsApp, atau email mendesak ('akun Anda akan diblokir dalam 24 jam'). Jika ragu, salin URL tanpa membukanya, lalu pindai menggunakan VirusTotal.com atau URLScan.io.",
+        "Ciri klasik pesan phishing: 1) Memicu rasa panik atau urgensi tinggi, 2) Menawarkan hadiah/promo tidak masuk akal, 3) Menggunakan domain gratisan atau ekstensi aneh (.xyz, .top, .vip, .icu), 4) Meminta login ulang atau memasukkan PIN/OTP.",
+        "Adanya gembok HTTPS di browser BUKAN jaminan situs tersebut bukan phishing! Penjahat siber juga bisa memasang sertifikat SSL gratis di situs palsu mereka. Yang wajib dicek adalah keaslian nama domainnya.",
+        "Jika menerima tautan pemendek URL (seperti bit.ly atau tinyurl) dari pengirim tak dikenal, gunakan situs unshortener atau tempel di URLScan.io untuk melihat halaman tujuan aslinya sebelum memutuskan membuka.",
+        "Cara paling aman mengakses layanan bank, marketplace, atau instansi: jangan klik link dari pesan masuk. Buka browser dan ketik alamat situs resminya secara manual atau gunakan aplikasi resmi dari Play Store/App Store."
+      ]
+    },
+    {
+      "tag": "scam_apk_whatsapp",
+      "patterns": [
+        "kiriman file apk kurir",
+        "undangan apk whatsapp",
+        "penipuan file apk di whatsapp",
+        "modus paket jne jnt format apk",
+        "terlanjur download dan install file apk penipuan",
+        "kenapa file apk berbahaya bisa curi otp",
+        "surat tilang atau tagihan pln format apk",
+        "cara kerja malware apk pencuri sms otp",
+        "cara mencegah penipuan apk kurir",
+        "ciri file undangan nikah palsu apk",
+        "gimana kalau terlanjur klik file apk",
+        "izin aplikasi yang berbahaya di android",
+        "baru download apk tapi belum diinstall apakah aman",
+        "cara blokir install unknown apps di android",
+        "apakah google play protect bisa deteksi apk penipuan",
+        "file pdf apk itu penipuan ya",
+        "rekening terkuras habis install apk undangan",
+        "modus resi paket kurir whatsapp"
+      ],
+      "responses": [
+        "Menurut imbauan resmi BSSN, kurir ekspedisi, panitia pernikahan, maupun instansi resmi TIDAK PERNAH mengirim resi, foto paket, undangan, atau surat tilang dalam format `.apk`. File `.apk` adalah installer aplikasi Android—jika diinstal, malware akan meminta izin membaca SMS sehingga bisa menyadap kode OTP m-banking secara diam-diam.",
+        "Jika kamu baru sebatas mengunduh file `.apk` di WhatsApp tetapi BELUM menekan 'Install/Pasang', perangkatmu masih aman. Segera hapus file mentahan `.apk` tersebut dari folder Downloads melalui File Manager dan blokir nomor pengirimnya.",
+        "DARURAT bila terlanjur menginstal file `.apk` penipuan: 1) Langsung matikan Wi-Fi & Data Seluler (aktifkan Airplane Mode) untuk memutus komunikasi malware ke server pelaku, 2) Masuk Pengaturan > Aplikasi, lalu Uninstall aplikasi mencurigakan (gunakan Safe Mode jika membandel).",
+        "Setelah mencopot `.apk` berbahaya: segera hubungi call center resmi bank untuk blokir sementara rekening/kartu, ganti semua password m-banking, e-wallet, dan email dari perangkat lain yang bersih, serta pertimbangkan Factory Reset jika izin Aksesibilitas sempat aktif.",
+        "Pencegahan terbaik di Android: aktifkan Google Play Protect, matikan izin 'Install unknown apps' untuk WhatsApp dan browser, serta jangan pernah mengizinkan aplikasi tak dikenal mengakses SMS, Notifikasi, atau Layanan Aksesibilitas (Accessibility Services).",
+        "Jangan tertipu ikon atau nama file seperti 'Undangan_Pernikahan.pdf.apk' atau 'Lihat_Foto_Paket.apk'. Fokus lihat ekstensi paling belakang—jika berakhiran `.apk`, itu 100% aplikasi, bukan gambar atau dokumen PDF."
+      ]
+    },
+    {
+      "tag": "social_engineering_otp",
+      "patterns": [
+        "ada telepon mengaku dari bank atau ojk",
+        "orang minta kode otp lewat whatsapp",
+        "modus penipuan mengaku customer service",
+        "apa itu social engineering rekayasa sosial",
+        "penipu tahu nama lengkap dan nomor rekeningku",
+        "kontak resmi pengaduan ojk berapa",
+        "modus salah transfer atau blokir rekening palsu",
+        "penelepon mengancam rekening mau diblokir",
+        "bolehkah kasih kode otp ke cs bank",
+        "cara hadapi penipu yang pura pura jadi polisi atau bank",
+        "penipuan perubahan tarif transaksi bank via whatsapp",
+        "kenapa tidak boleh sebutkan kode otp ke siapa pun",
+        "modus penipuan bea cukai barang ketahan",
+        "ciri psikologis manipulasi social engineering",
+        "nomor whatsapp resmi ojk indonesia"
+      ],
+      "responses": [
+        "Pihak bank, OJK, marketplace, maupun aparat TIDAK PERNAH meminta kode OTP, PIN, CVV kartu, atau password dengan alasan apa pun (termasuk pembatalan transaksi atau pembaruan tarif). Segera tutup telepon jika ada yang memintanya!",
+        "Social engineering bekerja dengan memanipulasi emosi korban—membuatmu panik ('rekening Anda dibobol/diblokir'), tergiur ('menang undian'), atau terburu-buru. Selalu beri jeda, tarik napas, dan jangan ikuti instruksi penelepon.",
+        "Meski penelepon menyebutkan nama lengkap, alamat, atau 4 digit terakhir kartumu dengan akurat, itu bukan bukti dia petugas resmi. Data tersebut bisa saja berasal dari kebocoran data lama atau scraping media sosial.",
+        "Jika ragu saat dihubungi pihak yang mengaku dari OJK atau perbankan, tutup telepon lalu hubungi saluran resmi secara mandiri. Kontak resmi OJK adalah telepon 157 atau WhatsApp resmi OJK di 081-157-157-157.",
+        "Waspadai modus 'salah transfer' atau 'perubahan biaya admin Rp150 ribu per bulan' lewat WhatsApp. Pelaku akan mengarahkanmu mengisi formulir web palsu atau menekan tautan yang meminta kredensial internet banking dan kode OTP."
+      ]
+    },
+    {
+      "tag": "qris_palsu",
+      "patterns": [
+        "penipuan qris palsu",
+        "cara bedakan qris asli dan palsu",
+        "modus stiker qris ditimpa penipu",
+        "tips aman bayar pakai qris",
+        "penipu kirim qris buat refund dana",
+        "waspada qris palsu di tempat umum",
+        "apa yang harus dicek sebelum scan qris",
+        "qris merchant ditukar oknum",
+        "bolehkah terima transfer uang dengan scan qris",
+        "solusi kalau terlanjur bayar ke qris palsu",
+        "cara cek nama merchant saat scan qris",
+        "keamanan transaksi qris statis dan dinamis",
+        "stiker qris palsu ditempel di kasir toko"
+      ],
+      "responses": [
+        "Modus QRIS palsu (QRIS swap fraud) terjadi saat pelaku menempelkan stiker QRIS miliknya menimpa QRIS asli di kasir, kotak amal, atau tempat parkir. Sebelum memasukkan PIN, WAJIB cocokkan nama merchant yang muncul di layar HP dengan nama toko tempatmu bertransaksi.",
+        "Secara fisik, perhatikan stiker QRIS di meja kasir atau tempat umum: waspada jika terlihat seperti stiker baru yang ditempel menumpuk di atas stiker lama atau cetakannya buram/terpotong.",
+        "Untuk pemilik usaha (merchant): waspadai modus penipu yang berpura-pura mengirim dana/refund dengan menyuruh kasir memindai (scan) kode QR yang diberikan pelaku—ingat, QRIS dipakai untuk MEMBAYAR, bukan menerima transfer masuk dengan cara scan!",
+        "Tips aman bertransaksi QRIS: 1) Pastikan nama merchant dan kota yang tampil di aplikasi pembayaran sesuai, 2) Gunakan QRIS dinamis langsung dari mesin EDC/layar kasir jika tersedia, 3) Tunjukkan bukti transaksi berhasil langsung ke kasir.",
+        "Jika terlanjur mentransfer ke QRIS palsu, segera simpan tangkapan layar bukti transaksi (termasuk nama merchant tujuan dan NMID), laporkan ke penyedia aplikasi pembayaran/bank terkait dan pemilik toko agar stiker palsu segera dicabut."
+      ]
+    },
+    {
+      "tag": "sim_swap",
+      "patterns": [
+        "apa itu serangan sim swap",
+        "sinyal hp tiba tiba hilang total tanpa sebab",
+        "nomor hp diambil alih orang lain",
+        "bahaya sim swap terhadap rekening bank",
+        "cara mencegah kartu sim dibajak",
+        "tanda terkena sim swapping",
+        "cara amankan nomor ponsel dari sim swap",
+        "kenapa sinyal hilang padahal di kota",
+        "fungsi pin sim lock di kartu perdana",
+        "langkah darurat kalau kartu sim tidak ada layanan tiba tiba",
+        "kenapa 2fa sms rentan terhadap sim swap",
+        "cara lindungi nomor telepon dari pembajakan"
+      ],
+      "responses": [
+        "SIM Swap adalah serangan di mana pelaku memalsukan identitas korban ke operator seluler untuk memindahkan nomor HP korban ke kartu SIM kosong milik pelaku. Akibatnya seluruh SMS OTP bank dan verifikasi akun langsung masuk ke ponsel pelaku.",
+        "Tanda bahaya paling jelas dari SIM Swap: sinyal seluler di HP tiba-tiba hilang total ('No Service' / 'Emergency Calls Only') padahal di area dengan sinyal kuat dan HP lain baik-baik saja. Segera hubungi operator selulermu!",
+        "Jika mencurigai terkena SIM Swap: 1) Hubungi call center operator atau datangi gerai resmi segera untuk membekukan kartu SIM, 2) Hubungi bank untuk membekukan sementara m-banking yang terhubung ke nomor tersebut, 3) Ganti sandi email dan akun penting.",
+        "Pencegahan efektif SIM Swap: aktifkan PIN kartu SIM (SIM Lock), hubungi operator untuk memasang pengamanan ekstra (anti-porting/verifikasi ketat di gerai), dan JANGAN gunakan SMS sebagai 2FA untuk email maupun aset finansial.",
+        "Karena kartu SIM bisa diambil alih secara fisik maupun sosial, pindahkan seluruh 2FA ke aplikasi Authenticator (TOTP) atau Passkey/FIDO2 yang terikat di perangkatmu, bukan di nomor telepon."
       ]
     },
     {
@@ -152,67 +410,595 @@
       "patterns": [
         "bahaya wifi publik",
         "aman gak pakai wifi gratis",
-        "fungsi vpn keamanan",
-        "setting dns aman",
-        "cara aman konek wifi kafe",
-        "sadap wifi evil twin",
-        "tips internetan di wifi umum",
-        "m banking di wifi kafe aman tidak"
+        "aman gak transaksi m banking di wifi kafe",
+        "apa itu serangan evil twin wifi",
+        "serangan man in the middle di wifi umum",
+        "tips aman pakai wifi bandara atau kampus",
+        "kenapa harus matikan auto connect wifi",
+        "risiko pakai hotspot gratis tanpa password",
+        "kafe wifi aman tidak",
+        "bolehkah login bank pakai wifi umum",
+        "cara kerja penyadapan di wifi umum",
+        "apakah aman buka email di wifi hotel",
+        "mitigasi serangan mitm di jaringan publik",
+        "kenapa wifi tanpa gembok berbahaya"
       ],
       "responses": [
-        "Jaringan Wi-Fi publik tanpa proteksi rentan terhadap serangan Man-in-the-Middle (MitM) dan Evil Twin (titik akses palsu penjebak). Jika terpaksa memakai Wi-Fi kafe/kampus, gunakan VPN pribadi (seperti WireGuard atau Tailscale), aktifkan DNS-over-HTTPS (DoH) di browser, dan jangan buka aplikasi perbankan m-banking.",
-        "Saat terhubung ke Wi-Fi publik gratis: pastikan situs selalu memakai protokol HTTPS (gembok hijau), matikan fitur file sharing dan auto-connect Wi-Fi, serta aktifkan firewall perangkat. Lebih aman gunakan kuota data seluler tethering jika ingin melakukan transaksi keuangan sensitif."
+        "Wi-Fi publik gratis di kafe, bandara, atau mall sangat berisiko terhadap serangan Man-in-the-Middle (MitM) dan 'Evil Twin' (hotspot palsu dengan nama mirip Wi-Fi kafe asli). Semua lalu lintas tidak terenkripsi bisa disadap oleh pelaku di jaringan yang sama.",
+        "Aturan tegas: JANGAN pernah membuka aplikasi mobile banking, dompet digital, atau melakukan transaksi sensitif saat terhubung ke Wi-Fi publik terbuka. Gunakan paket data seluler/tethering pribadi untuk aktivitas finansial.",
+        "Tips keamanan Wi-Fi publik: 1) Matikan fitur 'Auto-connect' ke jaringan terbuka, 2) Pastikan nama SSID Wi-Fi ke staf kafe (hindari nama mencurigakan seperti 'Free_Cafe_WiFi_5G' tanpa password), 3) Matikan fitur File Sharing/AirDrop di perangkat.",
+        "Dalam serangan Evil Twin, perangkatmu bisa otomatis terhubung ke Access Point palsu yang dibuat peretas karena sinyalnya dibuat lebih kuat. Peretas kemudian dapat menyisipkan halaman login palsu (captive portal) untuk mencuri kredensialmu.",
+        "Jika terpaksa memakai Wi-Fi publik untuk bekerja atau browsing, selalu nyalakan VPN tepercaya sebelum membuka aplikasi apa pun, dan pastikan browser selalu memakai mode HTTPS-Only."
+      ]
+    },
+    {
+      "tag": "vpn_dan_doh",
+      "patterns": [
+        "fungsi vpn keamanan",
+        "vpn apa yang aman dipakai",
+        "cara kerja wireguard dan tailscale",
+        "apa itu dns over https doh",
+        "kenapa vpn gratis berbahaya",
+        "rekomendasi vpn aman dan privasi",
+        "cara menyembunyikan aktivitas dns dari wifi publik",
+        "aktifkan private dns di android",
+        "cloudflare 1 1 1 1 atau quad9 lebih aman mana",
+        "perbedaan vpn dan dns pribadi",
+        "cara pasang private dns pemblokir malware di hp",
+        "apakah vpn melindungi dari virus atau phishing"
+      ],
+      "responses": [
+        "VPN membentuk terowongan terenkripsi dari perangkatmu ke server VPN, sehingga penyadap di jaringan Wi-Fi publik hanya melihat data acak yang tidak bisa dibaca. Protokol modern yang cepat dan aman antara lain WireGuard (atau Tailscale untuk akses jaringan pribadi).",
+        "Hindari VPN gratisan yang tidak jelas sumber pendanaannya! Banyak aplikasi VPN gratis di toko aplikasi justru mencatat riwayat browsing, menyuntikkan iklan berbahaya, atau menjual data pengguna ke pihak ketiga.",
+        "DNS-over-HTTPS (DoH) atau DNS-over-TLS (DoT / Private DNS) mengenkripsi permintaan nama domain agar operator Wi-Fi atau ISP tidak bisa mengintip situs apa saja yang sedang kamu kunjungi.",
+        "Kamu bisa mengaktifkan Private DNS secara gratis di Android lewat Pengaturan > Jaringan & Internet > DNS Pribadi (Private DNS) dengan penyedia tepercaya seperti Cloudflare (`1dot1dot1dot1.cloudflare-dns.com`) atau Quad9 (`dns.quad9.net`) yang juga memblokir domain malware.",
+        "Untuk kebutuhan profesional atau akses perangkat di rumah dari luar, WireGuard atau Tailscale memberikan enkripsi kriptografis modern dengan performa ringan tanpa membebani baterai ponsel."
+      ]
+    },
+    {
+      "tag": "juice_jacking",
+      "patterns": [
+        "apa itu juice jacking",
+        "bahaya cas hp di colokan usb umum bandara",
+        "aman gak ngecas di port usb mall atau stasiun",
+        "cara mencegah pencurian data lewat kabel usb",
+        "fungsi usb data blocker",
+        "risiko colok kabel data ke port usb publik",
+        "tips charging hp di tempat umum",
+        "muncul pop up trust this computer saat ngecas di tempat umum",
+        "peringatan fbi dan fcc soal port usb gratis",
+        "lebih aman pakai powerbank atau colokan ac daripada usb publik"
+      ],
+      "responses": [
+        "Juice Jacking adalah teknik penyadapan atau penyuntikan malware melalui port pengisian daya USB umum (seperti di bandara, terminal, atau mall) karena kabel USB standar mengalirkan daya sekaligus jalur data.",
+        "Peringatan dari FBI dan FCC: hindari mencolokkan ponsel langsung ke port USB publik yang sudah tersedia kabelnya atau ke lubang USB-A di dinding. Gunakan adaptor kepala charger (AC adapter) milikmu sendiri dan colokkan ke stopkontak listrik biasa!",
+        "Jika benar-benar terpaksa memakai port USB umum, gunakan power bank pribadi atau pasang perangkat 'USB Data Blocker' (condom USB) yang memutus pin jalur data sehingga hanya arus listrik yang mengalir.",
+        "Saat ponsel Android/iOS muncul pop-up bertuliskan 'Trust This Computer?' atau 'Allow access to device data?' saat hanya ingin mengecas di tempat asing, selalu pilih 'Don't Trust' / 'Charge Only' dan segera cabut kabelnya."
       ]
     },
     {
       "tag": "malware_ransomware",
       "patterns": [
         "ciri laptop kena malware",
-        "hp kena virus iklan",
-        "file terkunci ransomware",
-        "cara hapus malware",
-        "terlanjur instal apk penipu",
-        "bersihin virus laptop",
-        "pertolongan pertama kena ransomware",
-        "tanda perangkat terinfeksi malware"
+        "ponsel kena virus iklan",
+        "cara hapus malware di laptop atau hp",
+        "antivirus yang bagus buat windows dan android",
+        "tanda perangkat terinfeksi spyware atau trojan",
+        "hp tiba tiba lemot dan muncul iklan pop up",
+        "cara scan virus pakai malwarebytes atau defender",
+        "cara masuk safe mode buat hapus virus",
+        "kipas laptop kencang terus padahal gak buka apa apa",
+        "aplikasi aneh terpasang sendiri di hp",
+        "apa itu malware infostealer pencuri cookie",
+        "bolehkah pasang dua antivirus sekaligus di laptop",
+        "cara bersihkan adware yang muncul terus di android",
+        "windows defender saja apakah sudah cukup"
       ],
       "responses": [
-        "Pertolongan pertama jika perangkat terindikasi malware/ransomware: 1) Segera putuskan koneksi internet (aktifkan Airplane Mode / cabut kabel LAN) agar malware tidak menyebar atau mengirim data, 2) Masuk ke Safe Mode dan hapus aplikasi mencurigakan serta cabut izin Aksesibilitas (Accessibility Service), 3) Lakukan pemindaian penuh menggunakan antivirus tepercaya seperti Microsoft Defender atau Malwarebytes.",
-        "Jika file terkunci ransomware (ekstensi file berubah dan ada pesan tebusan): isolasi perangkat dari jaringan lokal segera! Jangan bayar uang tebusan karena tidak menjamin dekripsi. Cek situs No More Ransom (nomoreransom.org) untuk melihat apakah ada kunci dekripsi gratis yang tersedia untuk varian ransomware tersebut."
+        "Gejala perangkat terinfeksi malware/adware: muncul iklan pop-up saat layar terkunci atau di luar browser, baterai dan kuota internet boros tidak wajar, perangkat cepat panas, aplikasi asing muncul sendiri, atau browser sering diarahkan ke situs aneh.",
+        "Langkah membersihkan malware di HP Android: 1) Putuskan koneksi internet, 2) Masuk ke Safe Mode (tekan lama tombol Power, lalu tekan lama opsi 'Power off' hingga muncul 'Reboot to safe mode'), 3) Cabut izin Admin Perangkat & Aksesibilitas aplikasi asing, 4) Uninstall aplikasi mencurigakan tersebut.",
+        "Untuk komputer Windows: aktifkan pemindaian penuh (Full Scan) atau Microsoft Defender Offline Scan, lalu lakukan pemeriksaan lapis kedua dengan Malwarebytes Free. Periksa juga Task Manager dan Startup Apps untuk melihat proses asing.",
+        "Waspadai malware berjenis 'Infostealer' yang sering menyamar sebagai software bajakan/crack game atau ekstensi browser gratis. Infostealer diam-diam mencuri password tersimpan, cookie sesi login (sehingga bisa tembus tanpa 2FA!), dan dompet kripto.",
+        "Jangan pernah menginstal dua antivirus real-time secara bersamaan di Windows karena bisa bentrok dan memperlambat sistem. Kombinasi bawaan Windows Defender (yang selalu ter-update) plus scan berkala on-demand dengan Malwarebytes sudah sangat solid."
+      ]
+    },
+    {
+      "tag": "ransomware_darurat",
+      "patterns": [
+        "file terkunci ransomware tebusan",
+        "semua file berubah ekstensi aneh minta tebusan",
+        "pertolongan pertama komputer kena ransomware",
+        "apakah tebusan ransomware harus dibayar",
+        "cara dekripsi file kena ransomware di nomoreransom",
+        "langkah darurat saat jaringan kantor atau laptop kena ransomware",
+        "kenapa tidak boleh bayar tebusan hacker",
+        "file dokumen tidak bisa dibuka karena dienkripsi",
+        "apa itu brain cipher dan lockbit ransomware",
+        "cara cegah ransomware menyebar ke jaringan lokal",
+        "bolehkah mematikan paksa komputer saat kena ransomware",
+        "fungsi situs no more ransom org"
+      ],
+      "responses": [
+        "TINDAKAN DARURAT RANSOMWARE: 1) Segera cabut kabel LAN, matikan Wi-Fi, dan aktifkan Airplane Mode agar enkripsi tidak menyebar ke PC lain atau folder cloud (Google Drive/OneDrive), 2) Jangan matikan atau format paksa disk dulu jika masih butuh forensik/dekripsi.",
+        "Jangan pernah membayar uang tebusan ke pelaku ransomware! Membayar tebusan TIDAK menjamin pelaku akan memberikan kunci dekripsi yang berfungsi, dan justru mendanai kelompok kejahatan siber tersebut.",
+        "Cek apakah varian ransomware yang menyerang sudah memiliki alat dekripsi gratis di portal resmi **No More Ransom** (`nomoreransom.org`). Kamu cukup mengunggah 2 file terenkripsi beserta catatan tebusannya (*ransom note*) untuk identifikasi.",
+        "Belajar dari evaluasi BSSN terhadap insiden ransomware besar: penyerang biasanya mematikan Windows Defender dan menghapus Shadow Copy / backup lokal sebelum mengenkripsi file. Oleh karena itu, pemulihan terbaik adalah restore dari backup offline yang terisolasi (air-gapped).",
+        "Jika ransomware menginfeksi perangkat kerja/instansi, segera laporkan ke tim IT/CSIRT internal atau Aduan Siber BSSN, dokumentasikan ransom note dan ekstensi file, serta ganti seluruh kredensial administrator yang pernah login di mesin tersebut."
       ]
     },
     {
       "tag": "pemulihan_akun",
       "patterns": [
-        "akun instagram dihack",
+        "akun instagram dibajak",
         "email dibajak orang",
-        "cara balikin akun kena hack",
-        "whatsapp kena sadap",
-        "akun diambil alih",
-        "solusi akun kebobol",
-        "akun media sosial dibajak",
-        "langkah pemulihan akun diretas"
+        "solusi akun dibajak",
+        "akun google atau gmail diretas orang lain",
+        "cara keluarkan perangkat asing dari akun",
+        "langkah pertama saat akun media sosial kena hack",
+        "email dan password akun diganti peretas",
+        "akun facebook diambil alih orang",
+        "cara cek email forwarding tersembunyi",
+        "aktivitas login tidak dikenal di akun",
+        "akun tiktok atau x saya diretas harus apa",
+        "jasa recovery akun instagram di ig aman gak",
+        "cara cabut akses aplikasi pihak ketiga di akun google",
+        "kenapa akun masih dibobol padahal sudah ganti password"
       ],
       "responses": [
-        "Langkah darurat pemulihan akun yang dibajak: 1) Gunakan perangkat bersih yang tidak terinfeksi, 2) Lakukan reset password melalui email atau nomor telepon pemulihan, 3) Pilih opsi 'Keluar dari semua sesi' (Logout All Sessions/Devices) untuk menendang peretas, 4) Periksa aturan email forwarding/filter yang mungkin dipasang peretas, 5) Aktifkan 2FA berbasis aplikasi.",
-        "Jika akun WhatsApp atau Instagram diambil alih: laporkan segera melalui pusat bantuan resmi masing-masing platform. Beri tahu kontak keluarga/rekan kerja agar tidak merespons permintaan pinjaman uang atau transfer saldo dari nomormu, lalu mintalah kode verifikasi baru setelah menghapus aplikasi yang tidak dikenal."
+        "Langkah cepat memulihkan akun yang diretas: 1) Buka pengaturan keamanan dari perangkat lain yang dijamin bersih dari malware, 2) Pilih 'Log out of all devices/sessions' untuk menendang peretas, 3) Segera ganti kata sandi dengan kombinasi baru yang panjang & unik, 4) Aktifkan 2FA Authenticator.",
+        "Khusus untuk akun Email (Gmail/Outlook) yang pernah dibajak: periksa menu Pengaturan > Forwarding / Rules & Filters! Peretas sering memasang aturan rahasia untuk meneruskan salinan email OTP dan reset sandimu ke alamat email mereka.",
+        "Jika email pemulihan dan password sudah terlanjur diganti peretas, jangan panik dan jangan bayar calo jasa pemulihan akun di media sosial (banyak yang penipu!). Gunakan fitur resmi 'Account Recovery' / 'My account was hacked' dari Instagram, Google, atau Meta melalui halaman Help Center resmi.",
+        "Setelah akun berhasil direbut kembali, audit juga menu 'Third-party apps / Connected Apps' dan cabut akses aplikasi atau bot yang tidak kamu kenali, karena token OAuth aplikasi pihak ketiga bisa tetap aktif meski password sudah diganti.",
+        "Waspada jika peretas mencuri akun karena infeksi Infostealer di PC-mu: mengganti password dari PC yang sama tidak akan mempan karena pencuri langsung melihat sandi barumu. Bersihkan PC dahulu atau lakukan pemulihan lewat ponsel yang bersih!",
+        "Simpan bukti kepemilikan akun (email pertama kali daftar, riwayat invoice/tagihan, atau foto KTP/identitas terverifikasi jika diminta formulir resmi platform) untuk mempercepat proses verifikasi pemulihan akun."
+      ]
+    },
+    {
+      "tag": "pemulihan_whatsapp",
+      "patterns": [
+        "solusi akun whatsapp dibajak",
+        "whatsapp saya diretas orang asing",
+        "akun whatsapp keluar sendiri dan dipakai orang",
+        "cara aktifkan pin verifikasi dua langkah whatsapp",
+        "lapor whatsapp dibajak kemana",
+        "cara tendang penyusup di whatsapp web",
+        "cara amankan whatsapp agar tidak disadap",
+        "kode verifikasi whatsapp diminta orang",
+        "cara cek perangkat tertaut di whatsapp",
+        "whatsapp dibajak dan dipasang pin oleh hacker",
+        "alamat email support resmi whatsapp untuk blokir akun",
+        "cara kembalikan akun wa yang diambil alih"
+      ],
+      "responses": [
+        "Jika akun WhatsApp-mu tiba-tiba keluar (logged out) dan dibajak: segera instal/buka WhatsApp, masukkan nomor HP-mu untuk meminta kode OTP baru (SMS/telepon). Begitu kamu berhasil memasukkan OTP, sesi pelaku otomatis tertendang keluar!",
+        "Jika pelaku memasang PIN Two-Step Verification agar kamu tidak bisa masuk, tunggu 7 hari masa tunggu reset PIN tanpa kode, dan segera kirim email ke `support@whatsapp.com` dengan subjek 'Lost/Stolen: Please deactivate my account' beserta nomor HP format internasional (+62...) agar akunmu dibekukan sementara.",
+        "Pencegahan wajib WhatsApp: aktifkan **Verifikasi Dua Langkah (Two-Step Verification)** di Pengaturan > Akun > Verifikasi dua langkah. Buat PIN 6 digit yang sulit ditebak dan tambahkan alamat email pemulihan!",
+        "Rutin periksa menu **Perangkat Tertaut (Linked Devices)** di WhatsApp untuk memastikan tidak ada sesi WhatsApp Web/Desktop asing yang menumpang login di komputer orang lain. Jika ada yang mencurigakan, langsung ketuk 'Keluar (Log out)'.",
+        "Segera beri tahu keluarga atau teman di kontakmu melalui saluran lain jika WhatsApp-mu sedang dibajak, agar mereka tidak menjadi korban penipuan pinjam uang yang mengatasnamakan dirimu."
       ]
     },
     {
       "tag": "backup_enkripsi",
       "patterns": [
         "cara backup data aman",
-        "apa itu aturan backup 3 2 1",
-        "cara enkripsi file penting",
-        "amankan data dari ransomware",
-        "backup dokumen penting",
-        "rekomendasi software enkripsi",
-        "cara amankan file rahasia di laptop",
-        "strategi cadangkan data anti ransomware"
+        "aturan backup 3 2 1",
+        "strategi pencadangan data anti ransomware",
+        "kenapa hardisk backup tidak boleh terus tercolok",
+        "apa itu air gapped backup dan immutable storage",
+        "cara aman menyimpan cadangan foto dan dokumen",
+        "rekomendasi strategi backup bssn",
+        "berapa salinan backup yang ideal",
+        "cloud backup saja apakah cukup",
+        "cara uji coba pemulihan restore data backup",
+        "pentingnya file versioning di cloud storage",
+        "pelajaran kasus ransomware pdns tentang backup",
+        "media penyimpanan terbaik untuk backup jangka panjang"
       ],
       "responses": [
-        "Strategi perlindungan data terbaik dari ransomware adalah menerapkan aturan Backup 3-2-1: simpan minimal 3 salinan data, pada 2 jenis media penyimpanan berbeda (misal SSD eksternal dan cloud drive), dengan 1 salinan disimpan di tempat terpisah (off-site/cold storage yang tidak tersambung terus ke internet).",
-        "Untuk melindungi file sensitif dari pencurian data jika laptop hilang atau dicuri, gunakan enkripsi penuh (Full Disk Encryption) seperti BitLocker (Windows) atau FileVault (macOS). Untuk mengenkripsi folder atau partisi khusus, kamu bisa menggunakan software open-source VeraCrypt atau Cryptomator untuk cloud storage."
+        "Terapkan standar **Backup 3-2-1** yang juga didorong oleh BSSN untuk menangkal ransomware: miliki **3** salinan data (1 asli + 2 cadangan), simpan di **2** jenis media berbeda (misal SSD eksternal & cloud), dan letakkan **1** salinan di luar lokasi (*off-site* / *air-gapped*).",
+        "Mengapa harus ada salinan *air-gapped* (terputus dari jaringan)? Karena jika harddisk eksternal terus tercolok ke laptop atau folder cloud selalu melakukan sinkronisasi otomatis dua arah, ransomware akan ikut mengenkripsi file cadanganmu!",
+        "Untuk perlindungan maksimal, cabut harddisk eksternal begitu proses backup selesai, dan gunakan layanan cloud yang mendukung **versioning** (riwayat versi file) atau *immutable storage* sehingga file versi bersih sebelum terenkripsi tetap bisa dipulihkan.",
+        "Backup yang tidak pernah diuji coba sama saja belum punya backup. Lakukan simulasi *restore* (uji pemulihan) beberapa bulan sekali untuk memastikan file cadangan tidak korup dan password enkripsinya masih kamu ingat.",
+        "Hindari hanya mengandalkan satu tempat (seperti hanya di satu flashdisk atau satu akun cloud gratisan). Kombinasi penyimpanan lokal terpisah + cloud tepercaya ber-2FA menjamin datamu selamat dari serangan siber maupun kerusakan fisik perangkat."
+      ]
+    },
+    {
+      "tag": "enkripsi_disk_file",
+      "patterns": [
+        "cara enkripsi file penting",
+        "cara enkripsi hardisk dan flashdisk pakai veracrypt",
+        "apa fungsi bitlocker di windows",
+        "cara kunci folder rahasia agar tidak bisa dibuka orang",
+        "perbedaan bitlocker dan veracrypt",
+        "amankan data laptop kalau laptop hilang atau dicuri",
+        "cara aktifkan filevault di macbook",
+        "enkripsi dokumen ktp dan data pribadi",
+        "dimana harus simpan recovery key bitlocker",
+        "cara enkripsi file zip atau 7zip pakai password aes 256",
+        "apakah hidden folder windows aman untuk data rahasia",
+        "fungsi full disk encryption pada laptop"
+      ],
+      "responses": [
+        "Untuk mengamankan data jika laptop atau flashdisk hilang/dicuri, aktifkan enkripsi penuh disk (*Full Disk Encryption*): gunakan **BitLocker** (bawaan Windows Pro/Enterprise), **FileVault** (bawaan macOS), atau **LUKS** (Linux).",
+        "Jika ingin membuat brankas file terenkripsi lintas platform (Windows, macOS, Linux) atau mengenkripsi flashdisk secara open-source, gunakan **VeraCrypt**. File di dalamnya terenkripsi AES-256 dan tidak bisa dibaca tanpa kata sandi/keyfile.",
+        "Saat mengaktifkan BitLocker atau FileVault, simpan **Recovery Key** di tempat aman yang terpisah (misal di brankas Password Manager atau dicetak dan disimpan di laci aman)—jangan simpan kunci pemulihan di dalam laptop yang sama!",
+        "Sebelum mengunggah dokumen super sensitif (seperti scan KTP, paspor, atau akta) ke cloud penyimpanan biasa, bungkus dan enkripsi terlebih dahulu menggunakan arsip 7-Zip terenkripsi AES-256 atau kontainer VeraCrypt.",
+        "Jangan mengandalkan fitur 'hidden folder' biasa di Windows atau aplikasi 'pengunci folder' abal-abal untuk menyembunyikan data rahasia—cara tersebut mudah dilewati jika harddisk dibaca dari sistem lain. Hanya enkripsi kriptografis sejati yang benar-benar melindungi data."
+      ]
+    },
+    {
+      "tag": "keamanan_browser",
+      "patterns": [
+        "cara amankan browser chrome atau edge",
+        "bahaya ekstensi browser gratis",
+        "aman gak simpan password di google chrome",
+        "cara cegah cookie hijacking dan pencurian sesi",
+        "rekomendasi ekstensi keamanan browser",
+        "fungsi mode https only di browser",
+        "cara lindungi privasi saat browsing internet",
+        "browser apa yang paling aman",
+        "kenapa harus audit add on atau ekstensi browser",
+        "manfaat ublock origin untuk keamanan web",
+        "bahaya cookie login dicuri malware infostealer",
+        "cara bersihkan cache dan cookie di komputer umum"
+      ],
+      "responses": [
+        "Waspadai ekstensi browser (add-on) pihak ketiga! Banyak ekstensi gratis populer (seperti pengunduh video atau pengubah tema) yang dijual ke pihak jahat lalu diam-diam membaca riwayat browsing, cookie sesi login, hingga isi formulir web.",
+        "Lakukan audit ekstensi browser secara berkala: hapus ekstensi yang tidak benar-benar dibutuhkan dan hanya pasang dari developer bereputasi jelas. Pertimbangkan memasang pemblokir skrip/iklan berbahaya open-source seperti **uBlock Origin**.",
+        "Aktifkan pengaturan **HTTPS-Only Mode** (atau 'Always use secure connections') di Chrome, Firefox, atau Brave agar browser selalu memblokir atau memperingatkan sebelum membuka situs HTTP yang tidak terenkripsi.",
+        "Meskipun fitur simpan password bawaan browser cukup praktis, sebaiknya gunakan Password Manager khusus (seperti Bitwarden) dan matikan auto-save password browser—karena malware infostealer paling sering langsung menargetkan database profil browser.",
+        "Selalu tekan tombol 'Log out' setelah selesai menggunakan akun penting di komputer bersama/warnet/kampus, atau gunakan jendela Incognito/Private Window agar cookie sesi langsung terhapus saat browser ditutup."
+      ]
+    },
+    {
+      "tag": "privasi_media_sosial",
+      "patterns": [
+        "bahaya oversharing di media sosial",
+        "cara cegah doxxing di internet",
+        "foto boarding pass atau ktp jangan diupload",
+        "tips menjaga privasi di instagram dan tiktok",
+        "apa itu doxxing dan cara menghindarinya",
+        "cara amankan data pribadi agar tidak disalahgunakan",
+        "risiko share lokasi real time di story",
+        "bahaya ikut kuis tebak nama hewan atau tanggal lahir di ig story",
+        "cara kunci profil media sosial agar tidak dicuri datanya",
+        "kenapa barcode tiket pesawat tidak boleh difoto ke sosmed",
+        "tips mengurangi jejak digital di internet"
+      ],
+      "responses": [
+        "Hindari mengunggah foto dokumen identitas (KTP, SIM, Kartu Mahasiswa), tiket/boarding pass (barcode-nya berisi kode booking & data penumpang!), maupun foto kunci rumah/plat nomor kendaraan ke media sosial.",
+        "Untuk mencegah doxxing (penyebaran data pribadi tanpa izin) dan stalking: 1) Jangan posting lokasi rumah/kampus secara real-time saat masih berada di sana, 2) Gunakan nama samaran atau pisahkan akun publik dengan akun privat keluarga.",
+        "Periksa pengaturan privasi di Instagram, TikTok, dan Facebook: matikan izin penemuan akun lewat nomor HP/email ('Who can look you up'), batasi siapa yang bisa melihat daftar teman/pengikut, dan tinjau tag foto sebelum tampil di profil.",
+        "Hati-hati dengan kuis atau tren stiker media sosial seperti 'Siapa nama panggilan kecilmu?', 'Tanggal lahir & nama hewan peliharaanmu'. Pertanyaan ringan seperti itu sering dimanfaatkan untuk menebak jawaban pertanyaan keamanan (security questions) akun!",
+        "Rutin bersihkan jejak digital lama: hapus akun-akun situs web yang sudah tidak dipakai dan gunakan alamat email alias terpisah untuk mendaftar di layanan hiburan/belanja agar email utamamu tetap bersih dan privat."
+      ]
+    },
+    {
+      "tag": "keamanan_email",
+      "patterns": [
+        "cara deteksi email spoofing palsu",
+        "tips keamanan akun email utama",
+        "fungsi email alias untuk privasi",
+        "cara cek pengirim email asli atau palsu",
+        "ciri email penipuan mengatasnamakan instansi",
+        "kenapa harus pisahkan email utama dan email daftar web",
+        "cara aman menggunakan gmail",
+        "bahaya buka lampiran file zip atau html dari email asing",
+        "cara kerja tracking pixel di email spam",
+        "cara cek aktivitas login mencurigakan di gmail",
+        "rekomendasi layanan email alias gratis simplelogin"
+      ],
+      "responses": [
+        "Jangan hanya melihat 'Display Name' pengirim email (misal tertulis 'Tim Keamanan Bank'). Klik atau arahkan kursor ke alamat email lengkap di belakangnya—penipu sering memakai alamat domain gratisan atau mirip-mirip seperti `security@bank-update-id.xyz`.",
+        "Terapkan pemisahan fungsi email atau gunakan **email alias** (misal lewat SimpleLogin, Proton Pass, atau fitur `+alias` Gmail): gunakan satu email khusus hanya untuk perbankan & instansi penting, dan email lain untuk registrasi media sosial atau situs belanja.",
+        "Jika menerima email bertuliskan 'Lampiran Invoice.zip / .html / .iso / .exe' dari pengirim yang tidak dikenal, jangan dibuka atau diekstrak! File arsip dan HTML lampiran sering dipakai menyembunyikan skrip phishing atau malware.",
+        "Amankan akun Gmail/email utamamu dengan perlindungan tertinggi karena email adalah kunci utama 'Reset Password' hampir semua akun lain. Wajib aktifkan 2FA Authenticator/Passkey dan periksa menu 'Recent security activity' secara berkala.",
+        "Matikan fitur otomatis memuat gambar eksternal di pengaturan email jika memungkinkan, karena piksel pelacak (*tracking pixel*) dalam email spam bisa mengetahui kapan kamu membuka email, lokasi perkiraan (IP), dan jenis perangkatmu."
+      ]
+    },
+    {
+      "tag": "update_patch_sistem",
+      "patterns": [
+        "kenapa harus update sistem operasi dan aplikasi",
+        "pentingnya update keamanan atau security patch",
+        "bahaya pakai windows atau android versi jadul",
+        "apa itu celah kerentanan zero day",
+        "malas update hp apakah berbahaya",
+        "risiko memakai software bajakan atau crack",
+        "kapan waktu terbaik melakukan update perangkat",
+        "bahaya install mod apk atau aplikasi bajakan di android",
+        "apa arti end of life pada sistem operasi",
+        "cara aktifkan pembaruan otomatis windows dan browser",
+        "kenapa browser harus selalu versi terbaru"
+      ],
+      "responses": [
+        "Pembaruan sistem (OS update) dan aplikasi bukan sekadar menambah fitur baru—bagian terpentingnya adalah **Security Patch** untuk menutup celah keamanan (*vulnerability*) yang sudah ditemukan sebelum dieksploitasi oleh malware dan peretas.",
+        "Menggunakan perangkat dengan sistem operasi yang sudah melewati masa dukungan (*End-of-Life*, seperti Windows 7 atau Android versi lawas yang tidak lagi dapat patch keamanan) membuat perangkat rentan terhadap eksploitasi otomatis hanya dengan membuka halaman web berbahaya.",
+        "Aktifkan pembaruan otomatis (*Auto-update*) untuk sistem operasi, browser (Chrome/Edge/Firefox), dan aplikasi perpesanan. Browser modern merilis tambalan celah *zero-day* dengan sangat cepat.",
+        "Hindari menginstal software bajakan, crack, atau modifikasi (MOD APK) di komputer maupun ponsel. Sebagian besar installer crack disisipi trojan/infostealer yang aktif di latar belakang bahkan saat antivirus dimatikan saat proses instalasi."
+      ]
+    },
+    {
+      "tag": "keamanan_iot_router",
+      "patterns": [
+        "cara amankan wifi dan router rumah",
+        "enkripsi wifi terbaik wpa2 atau wpa3",
+        "kenapa harus ganti password admin router bawaan",
+        "apakah fitur wps di router aman",
+        "cara mencegah tetangga bobol wifi rumah",
+        "tips amankan smart tv dan cctv dari hacker",
+        "fungsi guest network di router wifi",
+        "bahaya port forwarding cctv rumah tanpa vpn",
+        "kenapa wpa tkip dan wep sudah tidak aman",
+        "cara isolasi perangkat iot pintar di jaringan rumah",
+        "tips ganti sandi wifi indihome atau biznet yang aman"
+      ],
+      "responses": [
+        "Langkah wajib mengamankan router Wi-Fi rumah: 1) Segera ganti username & password halaman admin router bawaan pabrik (misal `admin/admin`), 2) Gunakan protokol keamanan **WPA3-Personal** atau minimal **WPA2-AES** (jangan pernah pakai WEP atau WPA-TKIP yang sudah bobol).",
+        "Matikan fitur **WPS (Wi-Fi Protected Setup)** di pengaturan router! Fitur tombol/PIN WPS memiliki celah desain yang memungkinkan penyerang menebak PIN 8 digit dalam hitungan jam dan membobol password Wi-Fi rumahmu.",
+        "Manfaatkan fitur **Guest Network (Jaringan Tamu)** di router untuk tamu yang berkunjung atau untuk perangkat IoT (seperti Smart TV, lampu pintar, atau CCTV murah) agar terisolasi dari jaringan utama laptop dan ponsel pribadimu.",
+        "Untuk CCTV atau perangkat IoT di rumah: ganti password default seketika setelah dipasang, perbarui firmware-nya jika tersedia, dan hindari membuka akses port kamera langsung ke internet publik (Port Forwarding) tanpa lapisan VPN."
+      ]
+    },
+    {
+      "tag": "ai_deepfake_scam",
+      "patterns": [
+        "penipuan suara ai atau deepfake video call",
+        "ada video call atau voice note mirip suara keluarga minta uang",
+        "cara deteksi penipuan deepfake ai",
+        "modus kloning suara kerabat pakai ai",
+        "cara cegah penipuan voice cloning keluarga",
+        "apa itu safe word keluarga anti deepfake",
+        "ciri video call deepfake palsu",
+        "penipuan telepon suara mirip teman atau atasan",
+        "waspada penipuan ai mengaku saudara kecelakaan",
+        "tips verifikasi kalau keluarga mendadak minta transfer darurat",
+        "kenapa suara di telepon bisa ditiru pakai ai",
+        "bahaya unggah rekaman suara panjang di media sosial publik"
+      ],
+      "responses": [
+        "Penipuan berbasis AI (*voice cloning* & *deepfake video*) kini mampu meniru suara bahkan wajah keluarga/atasan hanya dari sampel audio beberapa detik di media sosial. Jangan langsung mentransfer uang meski suara di telepon terdengar 100% mirip!",
+        "Cara paling ampuh menangkal penipuan *AI voice cloning*: buat **Kata Sandi Keluarga (Family Safe Word)** secara offline bersama orang terdekat. Jika ada telepon darurat meminta uang, tanyakan kata sandi rahasia tersebut—AI penipu tidak akan mengetahuinya.",
+        "Selalu lakukan **verifikasi silang (callback)** melalui jalur berbeda: tutup telepon tersebut, lalu hubungi nomor asli kerabatmu secara langsung atau hubungi anggota keluarga lain yang berada di dekatnya.",
+        "Ciri visual *deepfake video call*: gerakan bibir sedikit tidak sinkron dengan audio, kedipan mata tidak wajar, pencahayaan wajah datar atau berkedip di area tepi rahang/rambut, serta penelepon sengaja membuat panggilan cepat terputus dengan alasan sinyal buruk.",
+        "Kurangi risiko penyalahgunaan suara oleh AI dengan membatasi publikasi video/audio wajah berdurasi panjang di akun media sosial yang bersifat publik."
+      ]
+    },
+    {
+      "tag": "secure_wipe_jual_hp",
+      "patterns": [
+        "cara hapus data permanen sebelum jual hp atau laptop",
+        "apakah factory reset saja cukup sebelum jual ponsel",
+        "cara wipe hardisk aman agar file tidak bisa direcover",
+        "tips aman sebelum servis atau jual hp bekas",
+        "bahaya jual hp tanpa hapus akun google dan icloud",
+        "kenapa file yang sudah dihapus bisa dikembalikan lagi",
+        "cara membersihkan data pribadi di laptop bekas",
+        "apa itu secure erase pada ssd dan hardisk",
+        "fungsi maintenance mode saat servis hp samsung",
+        "kenapa quick format hardisk masih bisa direcover"
+      ],
+      "responses": [
+        "Sebelum menjual atau menyerahkan HP bekas: 1) Backup data penting, 2) **Log out semua akun** (terutama akun Google/FRP atau Apple ID/Find My agar tidak terkunci bagi pembeli maupun tertinggal sesi cloud), 3) Pastikan enkripsi perangkat aktif, lalu lakukan **Factory Reset**.",
+        "Mengapa hanya menekan 'Delete' atau 'Quick Format' di harddisk tidak cukup? Karena sistem operasi hanya menghapus indeks/penunjuk file, sedangkan data mentahnya masih ada di disk dan mudah dikembalikan memakai software recovery gratis!",
+        "Jika perangkat Android/iOS modern sudah terenkripsi penuh sejak awal (*Full Disk Encryption* aktif secara default pada Android 10+ dan iOS), melakukan Factory Reset akan menghancurkan kunci enkripsi sehingga data lama tidak bisa didekripsi lagi.",
+        "Untuk laptop/PC dengan HDD konvensional, lakukan penimpaan data (*overwrite / full format* non-quick atau gunakan alat seperti `Eraser` / `BleachBit`). Untuk SSD modern, gunakan fitur **ATA Secure Erase** atau **NVMe Format** dari BIOS/utility bawaan pabrikan SSD.",
+        "Saat membawa HP atau laptop ke tempat servis yang tidak bisa ditunggu: aktifkan mode tamu/Maintenance Mode (tersedia di beberapa HP seperti Samsung Maintenance Mode) jika memungkinkan, atau backup & reset perangkat terlebih dahulu bila data sensitif tersimpan di dalamnya."
+      ]
+    },
+    {
+      "tag": "pinjol_ilegal_privasi",
+      "patterns": [
+        "bahaya aplikasi pinjol ilegal akses kontak",
+        "aplikasi pinjaman online minta izin galeri dan kontak",
+        "cara cek pinjol resmi terdaftar ojk",
+        "teror penagihan pinjol ilegal ke semua kontak whatsapp",
+        "cara lapor pinjol ilegal ke ojk dan polisi",
+        "kenapa pinjol ilegal bisa tahu semua nomor kontak di hp",
+        "cara cabut izin aplikasi pinjaman di pengaturan android",
+        "tips aman dari jebakan pinjol ilegal",
+        "aturan camilan ojk untuk izin aplikasi pinjaman online",
+        "kontak whatsapp resmi ojk buat cek legalitas pinjol"
+      ],
+      "responses": [
+        "Menurut aturan OJK, layanan pinjaman online (Pindar/Fintech Lending) yang legal **HANYA boleh mengakses Kamera, Mikrofon, dan Lokasi (CAMILAN)**—TIDAK BOLEH mengakses daftar kontak, galeri foto, log panggilan, atau penyimpanan file!",
+        "Pinjol ilegal menyedot seluruh daftar kontak dan galeri ponsel saat pertama kali diinstal lalu menggunakannya untuk mengintimidasi dan menyebar fitnah ke kontak korban. Jangan pernah menginstal aplikasi pinjaman dari link SMS/WA berformat `.apk`!",
+        "Sebelum memakai layanan pinjaman digital, wajib cek legalitasnya lewat kanal resmi OJK: hubungi WhatsApp resmi OJK di **081-157-157-157** (ketik nama aplikasi pinjolnya) atau telepon **157**.",
+        "Jika terlanjur menginstal aplikasi pinjol ilegal: 1) Cabut seluruh izin akses (Kontak, Lokasi, Penyimpanan, SMS) di Pengaturan > Aplikasi, 2) Uninstall aplikasi tersebut, 3) Amankan akun media sosial & WhatsApp agar tidak disadap.",
+        "Segera laporkan ancaman, teror, atau penyebaran data pribadi oleh pinjol ilegal ke Satgas PASTI OJK (`konsumen@ojk.go.id` / 157), Aduan Konten Komdigi (`aduankonten.id`), dan Patroli Siber Polri (`patrolisiber.id`)."
+      ]
+    },
+    {
+      "tag": "keamanan_cloud_storage",
+      "patterns": [
+        "cara amankan google drive dan onedrive",
+        "risiko share link google drive anyone with the link",
+        "tips menyimpan data sensitif di cloud storage",
+        "cara cek file mana saja yang dishare publik di google drive",
+        "apakah google drive aman buat simpan foto ktp",
+        "cara atur izin berbagi file cloud agar tidak bocor",
+        "bahaya link cloud terbuka untuk umum",
+        "enkripsi file sebelum upload ke cloud",
+        "cara cari file google drive yang terbuka untuk publik",
+        "tips berbagi dokumen rahasia di cloud dengan aman"
+      ],
+      "responses": [
+        "Kesalahan paling sering di Google Drive/OneDrive adalah mengatur tautan menjadi **'Anyone with the link' (Siapa saja yang memiliki tautan)** untuk dokumen berisi NIK, nilai, atau data pribadi—tautan tersebut bisa tersebar dan terindeks!",
+        "Selalu pilih opsi berbagi **'Restricted' (Terbatas)** dan masukkan alamat email spesifik orang yang berhak mengakses saja. Jika hanya untuk dilihat tanpa diunduh ulang, matikan opsi unduh/salin bagi viewer.",
+        "Lakukan audit berkala di Google Drive: ketik `visibility:anyoneWithLink` atau `is:shared` di kolom pencarian Drive untuk menemukan file lama yang tanpa sadar masih terbuka akses publiknya.",
+        "Untuk dokumen sangat rahasia (KTP, paspor, kontrak finansial, atau backup recovery codes), jangan simpan dalam bentuk polos di cloud biasa—enkripsi terlebih dahulu dengan VeraCrypt atau arsip 7-Zip berpassword AES-256 sebelum diunggah.",
+        "Pastikan akun cloud storage utamamu dilindungi kata sandi unik dan 2FA Authenticator/Passkey, serta periksa perangkat mana saja yang sedang melakukan sinkronisasi folder lokal (*Drive for Desktop / OneDrive*)."
+      ]
+    },
+    {
+      "tag": "keamanan_belanja_online",
+      "patterns": [
+        "tips aman belanja online di marketplace",
+        "modus penipuan cod paket kosong tidak dipesan",
+        "penjual minta transaksi di luar aplikasi lewat whatsapp",
+        "bahaya transfer langsung di luar rekening bersama",
+        "cara hindari penipuan toko online palsu di instagram",
+        "dapat paket cod padahal tidak pernah pesan barang",
+        "ciri akun olshop penipu di media sosial",
+        "tips aman pakai kartu kredit atau paylater saat belanja",
+        "kenapa tidak boleh kirim foto cvv kartu kredit",
+        "fungsi virtual card saat belanja di website luar negeri"
+      ],
+      "responses": [
+        "Aturan utama belanja aman di marketplace: **JANGAN pernah mau diajak bertransaksi di luar aplikasi** (misal diminta transfer langsung via WhatsApp dengan iming-iming diskon atau ongkir gratis). Transaksi di luar sistem menghilangkan perlindungan rekening bersama (escrow).",
+        "Waspadai modus **penipuan paket COD palsu**: kurir datang menagih uang COD untuk paket yang tidak pernah kamu pesan atau dipesan anggota keluarga. Pesan ke orang rumah untuk selalu konfirmasi dulu sebelum membayar paket COD apa pun!",
+        "Saat berbelanja di media sosial (Instagram/TikTok/Facebook): periksa umur akun, riwayat pergantian nama akun (*About this account*), kolom komentar yang sengaja dikunci, serta harga barang yang jauh di bawah harga pasar.",
+        "Untuk transaksi dengan kartu debit/kredit di situs web luar negeri, gunakan **Virtual Card** atau fitur kartu debit virtual sekali pakai/dengan limit transaksi terpisah agar nomor kartu utama rekening tabunganmu tidak terekspos jika situs merchant bocor.",
+        "Jangan pernah membagikan foto bagian depan dan belakang kartu kredit (terutama 3 digit **CVV/CVC**) atau kode OTP 3D-Secure kepada siapa pun termasuk 'admin toko'."
+      ]
+    },
+    {
+      "tag": "biometrik_kunci_layar",
+      "patterns": [
+        "aman gak pakai sidik jari atau face unlock di hp",
+        "tips kunci layar ponsel yang paling aman",
+        "pakai pin 4 digit atau 6 digit atau password alfanumerik",
+        "kenapa harus sembunyikan notifikasi otp di lock screen",
+        "cara atur layar kunci agar otp tidak bisa dibaca orang",
+        "pentingnya fitur find my device dan find my iphone",
+        "langkah pertama kalau hp hilang atau dicuri",
+        "kenapa pola pattern di hp kurang aman dibanding pin",
+        "cara cegah pencuri mengaktifkan airplane mode dari lock screen",
+        "fungsi remote wipe saat ponsel hilang",
+        "sembunyikan notifikasi otp di layar kunci ponsel"
+      ],
+      "responses": [
+        "Aktifkan kunci layar menggunakan **PIN minimal 6 digit acak** atau **Password alfanumerik** (lebih kuat dari pola/pattern yang jejak jarinya sering tertinggal di kaca layar), dipadukan dengan biometrik (sidik jari/Face ID) untuk kenyamanan harian.",
+        "Pengaturan wajib di HP: **sembunyikan isi notifikasi sensitif saat layar terkunci** (*Hide sensitive notification content on lock screen*)! Jika tidak, siapa pun yang memegang HP-mu saat terkunci bisa langsung membaca kode SMS OTP atau pesan WhatsApp dari layar depan.",
+        "Matikan akses ke **Quick Settings / Control Center** dari layar terkunci (jika HP mendukungnya) agar pencuri tidak bisa langsung menyalakan Airplane Mode untuk memutus sinyal pelacakan.",
+        "Aktifkan **Find My Device** (Android) atau **Find My** (iPhone) sejak sekarang, dan pastikan kamu hapal kredensial akun Google/Apple ID-mu agar bisa mengunci atau menghapus data perangkat dari jarak jauh (*Remote Wipe*) jika HP hilang.",
+        "Jika ponsel hilang/dicuri: 1) Lacak & aktifkan 'Lost Mode' / 'Erase Device' dari perangkat lain, 2) Segera hubungi operator seluler untuk memblokir nomor SIM agar tidak dipakai menerima OTP, 3) Hubungi bank untuk blokir akses m-banking pada perangkat lama."
+      ]
+    },
+    {
+      "tag": "lapor_insiden_siber",
+      "patterns": [
+        "lapor penipuan online kemana di indonesia",
+        "kontak aduan siber bssn dan komdigi",
+        "cara cek rekening penipu di cekrekening id",
+        "langkah melapor jika tertipu transfer uang ke penipu",
+        "cara lapor akun bank penipu agar diblokir",
+        "apa itu patrolisiber polri dan aduankonten",
+        "situs resmi pemerintah buat lapor kejahatan siber",
+        "sudah terlanjur transfer ke penipu harus bagaimana",
+        "apa itu iasc ojk indonesia anti scam centre",
+        "cara lapor nomor whatsapp penipu ke aduannomor id",
+        "barang bukti apa saja yang disiapkan saat lapor penipuan online"
+      ],
+      "responses": [
+        "Jika kamu menjadi korban penipuan transaksi/transfer: **BERTINDAK CEPAT** dalam hitungan menit! Segera hubungi **call center resmi bank pengirim dan bank penerima** dengan bukti transfer dan laporan kronologi agar rekening penipu bisa segera diblokir/ditandai.",
+        "Laporkan nomor rekening, nomor telepon, atau akun media sosial pelaku penipuan ke portal resmi pemerintah: **CekRekening.id** (Kementerian Komdigi) untuk rekening penipu, dan **AduanNomor.id** untuk nomor HP/WhatsApp penipu.",
+        "Untuk pelaporan kejahatan siber dan konten berbahaya di Indonesia, kamu dapat mengakses saluran resmi: **Patroli Siber Polri** (`patrolisiber.id`), **Aduan Konten Komdigi** (`aduankonten.id`), dan **Indonesia Anti-Scam Centre (IASC) OJK** (`iasc.ojk.go.id`) / telepon OJK **157**.",
+        "Untuk insiden kebocoran data, malware skala organisasi, atau serangan siber infrastruktur, hubungi **BSSN (Badan Siber dan Sandi Negara)** melalui layanan aduan siber resmi BSSN.",
+        "Simpan seluruh barang bukti digital sebelum melapor: tangkapan layar percakapan WhatsApp/DM lengkap dengan nomor/username pelaku, bukti resi transfer (beserta jam & tanggal), dan tautan/file yang dikirim pelaku (jangan dihapus!)."
+      ]
+    },
+    {
+      "tag": "keamanan_dompet_digital",
+      "patterns": [
+        "cara amankan akun dana ovo gopay shopeepay",
+        "bahaya link klaim saldo dana kaget palsu",
+        "penipuan link saldo e wallet gratis",
+        "tips aman pakai dompet digital agar saldo tidak hilang",
+        "kenapa saldo e wallet bisa berkurang sendiri",
+        "bahaya menghubungkan kartu debit ke banyak aplikasi",
+        "cara aktifkan pin dan biometrik transaksi e wallet",
+        "penipuan cs dana atau gopay palsu di instagram",
+        "cara putuskan tautan pembayaran di google play store",
+        "waspada akun e wallet kena take over lewat otp",
+        "apakah pin e wallet boleh sama dengan pin atm"
+      ],
+      "responses": [
+        "Waspadai penipuan berkedok link **'Klaim Saldo DANA Kaget / Giveaway e-Wallet'** yang tersebar di WhatsApp atau komentar media sosial. Domain resmi hanya milik aplikasi resminya—tautan tiruan akan meminta nomor HP, PIN, dan kode OTP untuk menguras saldomu.",
+        "Amankan dompet digital (GoPay, OVO, DANA, ShopeePay): aktifkan verifikasi PIN + biometrik untuk setiap transaksi keluar, dan hindari menghubungkan kartu debit utama secara permanen jika aplikasi tidak mewajibkannya.",
+        "Jangan pernah menghubungi 'CS e-Wallet' lewat DM Instagram atau nomor WhatsApp pribadi yang ditemukan di kolom komentar atau Google Maps palsu! Gunakan hanya menu Pusat Bantuan resmi di dalam aplikasi e-wallet tersebut.",
+        "Jika melihat riwayat transaksi atau pemotongan saldo yang tidak kamu kenali (misalnya langganan aplikasi/game tak dikenal), segera putuskan tautan akun pembayaran di Google Play/App Store dan hubungi bantuan resmi e-wallet terkait.",
+        "Selalu bedakan PIN transaksi dompet digital dengan PIN kartu ATM bank serta tanggal lahirmu, agar jika satu bocor tidak merembet ke seluruh aset keuanganmu."
+      ]
+    },
+    {
+      "tag": "phishing_lowongan_kerja",
+      "patterns": [
+        "ciri penipuan lowongan kerja palsu mengatasnamakan bumn",
+        "loker palsu minta transfer uang tiket atau tes",
+        "bahaya kirim foto ktp dan selfie untuk lowongan kerja tidak jelas",
+        "modus penipuan panggilan interview kerja palsu",
+        "cara cek keaslian email rekrutmen perusahaan",
+        "penipuan kerja paruh waktu like dan subscribe dibayar",
+        "modus tugas telegram misi berbayar tipu",
+        "waspada loker abal abal di telegram dan whatsapp",
+        "apa itu task scam pekerjaan online di telegram",
+        "kenapa rekrutmen resmi tidak pakai email gmail",
+        "cara verifikasi lowongan kerja resmi perusahaan"
+      ],
+      "responses": [
+        "Ciri mutlak penipuan lowongan kerja: perusahaan resmi (BUMN maupun swasta kredibel) **TIDAK PERNAH** memungut biaya sepeser pun untuk tes, seragam, atau akomodasi perjalanan, dan tidak memakai email gratisan seperti `@gmail.com` untuk undangan resmi.",
+        "Waspadai modus **Task Scam (Misi Berbayar Telegram/WhatsApp)** berkedok kerja paruh waktu 'like/subscribe/review produk'. Awalnya korban memang diberi komisi kecil agar percaya, lalu dipancing menyetor deposit jutaan rupiah dengan janji komisi besar yang akhirnya dibawa kabur!",
+        "Jangan sembarangan mengirim foto **KTP, Kartu Keluarga, dan foto selfie memegang KTP** ke perekrut yang belum terverifikasi. Data e-KYC tersebut sangat rawan disalahgunakan penipu untuk membuka rekening pinjol ilegal atau akun penipuan atas namamu.",
+        "Selalu verifikasi info lowongan langsung melalui situs karir resmi perusahaan (`career.namaperusahaan.co.id`) atau akun LinkedIn resmi terverifikasi sebelum mengirim dokumen pribadi apa pun."
+      ]
+    },
+    {
+      "tag": "keamanan_kampus_komputer_umum",
+      "patterns": [
+        "tips aman login akun di komputer lab kampus atau warnet",
+        "cara hindari pencurian akun siakad dan email kampus",
+        "bahaya lupa logout di komputer bersama",
+        "kenapa tidak boleh centang remember me di pc umum",
+        "cara aman pakai wifi kampus untuk kuliah",
+        "tips proteksi akun microsoft 365 dan google workspace kampus",
+        "aman gak colok flashdisk di komputer percetakan atau rental",
+        "cara keluarkan sesi akun yang lupa logout di pc lab"
+      ],
+      "responses": [
+        "Saat terpaksa memakai komputer lab kampus, perpustakaan, atau percetakan: selalu buka browser dalam mode **Incognito / Private Window**, JANGAN pernah mencentang 'Keep me signed in / Remember me', dan pastikan sudah **Log out** serta menutup seluruh jendela browser sebelum pergi.",
+        "Jangan pernah mencolokkan flashdisk pribadi ke PC percetakan yang penuh virus shortcut, lalu mencolokkannya lagi ke laptop tugas akhirmu tanpa memindainya terlebih dahulu—atau lebih aman kirim file tugas lewat tautan cloud sementara/WhatsApp Web (lalu langsung Log out dari WhatsApp Web).",
+        "Amankan akun email kampus (`.ac.id`) dan portal akademik (SIAKAD/LMS) dengan sandi yang berbeda dari akun media sosialmu, serta aktifkan 2FA bila sistem SSO kampus sudah menyediakannya.",
+        "Jika lupa logout setelah memakai PC lab kampus, segera buka pengaturan keamanan akun Google/Microsoft dari ponselmu dan klik **Sign out of all sessions / Manage devices** untuk mencabut akses PC lab tersebut."
+      ]
+    },
+    {
+      "tag": "keamanan_kripto_web3",
+      "patterns": [
+        "cara simpan seed phrase wallet kripto yang aman",
+        "bahaya screenshot 12 kata recovery phrase",
+        "apa itu wallet drainer dan airdrop palsu",
+        "tips aman pakai metamask atau phantom wallet",
+        "kenapa tidak boleh simpan seed phrase di google drive atau whatsapp",
+        "perbedaan hot wallet dan cold hardware wallet",
+        "cara hindari scam web3 dan smart contract berbahaya",
+        "fungsi revoke cash untuk cabut izin token wallet",
+        "kenapa harus pakai burner wallet saat klaim airdrop"
+      ],
+      "responses": [
+        "Aturan mutlak dompet kripto self-custody: **JANGAN PERNAH** mengetik, menyalin ke clipboard, memfoto, men-screenshot, atau menyimpan 12/24 kata *Seed Phrase* di Google Drive, iCloud, Notes HP, maupun WhatsApp! Tulis di media fisik (kertas/pelat logam tahan api) dan simpan di tempat aman offline.",
+        "Waspadai situs **Wallet Drainer** berkedok klaim airdrop gratis atau mint NFT mendesak. Jika sebuah dApp meminta kamu menandatangani izin transaksi aneh (`SetApprovalForAll` / `Permit` / `IncreaseAllowance` tak terbatas), segera tolak karena dapat menguras seluruh aset di wallet tersebut!",
+        "Pisahkan dompetmu: gunakan **Burner Wallet** (berisi saldo kecil) saat mencoba dApp baru atau klaim airdrop, dan simpan aset utama di **Cold Wallet / Hardware Wallet** (seperti Ledger atau Trezor) yang kunci privatnya tidak pernah menyentuh internet.",
+        "Rutin cabut izin kontrak pintar (*token approvals*) lama yang sudah tidak dipakai melalui alat tepercaya seperti **Revoke.cash** agar wallet tidak rentan jika suatu saat protokol lama diretas."
+      ]
+    },
+    {
+      "tag": "keamanan_remote_work",
+      "patterns": [
+        "tips keamanan kerja jarak jauh atau wfh",
+        "bahaya membuka port rdp remote desktop ke internet",
+        "cara aman akses server kantor dari rumah",
+        "kenapa tidak boleh pakai laptop kantor untuk install game bajakan",
+        "tips pisahkan profil browser kerja dan pribadi",
+        "shortcut kunci layar cepat saat tinggalin laptop kerja",
+        "kenapa port 3389 rdp sering diserang ransomware",
+        "wajib pakai vpn kantor saat kerja dari kafe"
+      ],
+      "responses": [
+        "Jika bekerja jarak jauh (WFH), jangan pernah membuka port **RDP (Remote Desktop Protocol / port 3389)** langsung ke internet publik tanpa lapisan VPN! RDP terbuka adalah salah satu pintu masuk nomor satu serangan ransomware.",
+        "Gunakan koneksi **VPN perusahaan** (berbasis WireGuard/OpenVPN/Zero Trust) saat mengakses sistem internal kantor dari rumah atau kafe, dan pisahkan perangkat atau minimal pisahkan **Profil Browser** antara akun kerja dan aktivitas pribadi.",
+        "Jangan menginstal aplikasi hiburan tidak resmi, ekstensi browser sembarangan, atau software bajakan di laptop kerja, karena satu infeksi *infostealer* di perangkat kerja bisa membocorkan kredensial VPN dan data sensitif perusahaan.",
+        "Kunci layar laptop (`Win + L` di Windows atau `Ctrl + Cmd + Q` di macOS) setiap kali meninggalkan meja kerja, meskipun hanya sebentar di rumah atau ruang kerja bersama."
       ]
     }
   ]

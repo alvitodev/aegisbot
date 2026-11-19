@@ -30,9 +30,15 @@ NORMALISASI = {
     "pw": "password", "pass": "password", "sandi": "password",
     "mfa": "2fa",
     "kebobol": "dibajak", "kebolol": "dibajak", "dihack": "dibajak",
-    "kehack": "dibajak", "diretas": "dibajak",
+    "kehack": "dibajak", "diretas": "dibajak", "bobol": "dibajak", "kuras": "dibajak",
     "pising": "phishing", "phising": "phishing",
     "virus": "malware", "bocor": "kebocoran", "konek": "terhubung",
+    "wa": "whatsapp", "ig": "instagram", "fb": "facebook",
+    "hp": "ponsel", "rek": "rekening",
+    "mbanking": "mobile banking", "m-banking": "mobile banking",
+    "scam": "penipuan", "tipu": "penipuan",
+    "ngecek": "cek", "ngaktifin": "aktifkan", "nyalain": "aktifkan",
+    "amanin": "amankan", "hapusin": "hapus",
 }
 
 # Kata henti (stopword) bahasa Indonesia yang sederhana
@@ -132,6 +138,7 @@ class ChatbotEngine:
             for pola in intent["patterns"]
         ]
         self._responses = {i["tag"]: i["responses"] for i in theme["intents"]}
+        self._last_reply_idx: dict[str, int] = {}
 
     def explain(self, pesan: str, top: int = 3) -> list[dict]:
         """Kandidat intent terbaik beserta pola dan skornya (untuk belajar/debug)."""
@@ -160,6 +167,16 @@ class ChatbotEngine:
                     .replace("{tanggal}", now.strftime("%d-%m-%Y"))
                     .replace("{nama_bot}", self.theme["bot_name"]))
 
+    def _pilih_respons(self, key: str, pilihan: list[str]) -> str:
+        """Pilih respons acak tanpa mengulang respons terakhir secara berturut-turut."""
+        if len(pilihan) <= 1:
+            return pilihan[0]
+        last_idx = self._last_reply_idx.get(key)
+        kandidat = [i for i in range(len(pilihan)) if i != last_idx]
+        idx = random.choice(kandidat)
+        self._last_reply_idx[key] = idx
+        return pilihan[idx]
+
     def reply(self, pesan: str) -> dict:
         """Proses pesan pengguna dan kembalikan respons lengkap."""
         if not pesan or not pesan.strip():
@@ -167,7 +184,7 @@ class ChatbotEngine:
                     "intent": None, "score": 0.0}
         tag, skor = self.classify(pesan)
         if tag is None:
-            teks = random.choice(self.theme["fallback"])
+            teks = self._pilih_respons("__fallback__", self.theme["fallback"])
         else:
-            teks = random.choice(self._responses[tag])
+            teks = self._pilih_respons(tag, self._responses[tag])
         return {"reply": self._isi_placeholder(teks), "intent": tag, "score": skor}

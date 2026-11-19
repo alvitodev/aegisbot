@@ -10,25 +10,46 @@ aegisbot ini bot apa ya,identitas
 jam berapa sekarang di server,waktu
 sekarang tanggal berapa ya,waktu
 gimana bikin pw yang kuat dan aman,password_2fa
-cara aktifkan mfa authenticator di hp,password_2fa
-rekomendasi aplikasi simpan sandi,password_2fa
+rekomendasi aplikasi simpan sandi,password_manager
+cara aktifkan mfa authenticator di hp,autentikasi_2fa_passkey
 cara tahu apakah email saya kena bocor,kebocoran_data
 cek data pribadi bocor di have i been pwned,kebocoran_data
 langkah mitigasi kalau akun kena data breach,kebocoran_data
 ciri link pising yang menipu,phishing_apk
-dapat kiriman file apk undangan pernikahan di whatsapp,phishing_apk
 cara cek link phising di virustotal,phishing_apk
+dapat kiriman file apk undangan pernikahan di whatsapp,scam_apk_whatsapp
+ada orang telepon mengaku cs bank minta otp,social_engineering_otp
+hati hati stiker qris palsu ditempel di kasir,qris_palsu
+sinyal ponsel tiba tiba hilang semua curiga sim swap,sim_swap
 bahaya gak konek wifi kafe gratisan,keamanan_wifi
-fungsi vpn kalau pakai wifi umum,keamanan_wifi
 apakah aman transaksi m banking pakai wifi publik,keamanan_wifi
+fungsi vpn kalau pakai wifi umum,vpn_dan_doh
+bahaya ngecas hp di port usb umum bandara,juice_jacking
 hp saya kena virus iklan pop up terus,malware_ransomware
 tanda laptop kena malware dan cara hapusnya,malware_ransomware
-pertolongan pertama file terkunci ransomware tebusan,malware_ransomware
+pertolongan pertama file terkunci ransomware tebusan,ransomware_darurat
 akun instagram kebobol orang lain,pemulihan_akun
 email saya dihack bagaimana cara balikinnya,pemulihan_akun
-solusi akun whatsapp diretas orang asing,pemulihan_akun
+solusi akun whatsapp diretas orang asing,pemulihan_whatsapp
 gimana aturan backup 3 2 1 buat amankan data,backup_enkripsi
-cara enkripsi berkas dokumen penting pakai veracrypt,backup_enkripsi
+cara enkripsi berkas dokumen penting pakai veracrypt,enkripsi_disk_file
+bahaya pasang ekstensi browser gratis sembarangan,keamanan_browser
+jangan upload foto ktp atau boarding pass di sosmed,privasi_media_sosial
+cara cek alamat pengirim email asli atau spoofing,keamanan_email
+kenapa wajib update security patch sistem operasi,update_patch_sistem
+cara amankan router wifi rumah agar tidak dibobol tetangga,keamanan_iot_router
+penipuan voice cloning suara ai mirip keluarga,ai_deepfake_scam
+cara hapus data permanen sebelum jual ponsel bekas,secure_wipe_jual_hp
+bahaya aplikasi pinjol ilegal menyedot daftar kontak,pinjol_ilegal_privasi
+risiko share link google drive terbuka untuk publik,keamanan_cloud_storage
+penipuan paket cod kosong saat belanja online,keamanan_belanja_online
+pentingnya sembunyikan notifikasi otp di layar kunci hp,biometrik_kunci_layar
+lapor rekening penipu online ke cekrekening id,lapor_insiden_siber
+waspada link palsu klaim saldo dana kaget,keamanan_dompet_digital
+ciri loker palsu bumn minta transfer uang tes,phishing_lowongan_kerja
+bahaya lupa logout akun di komputer lab kampus,keamanan_kampus_komputer_umum
+jangan pernah screenshot seed phrase wallet kripto,keamanan_kripto_web3
+bahaya buka port rdp remote desktop saat wfh,keamanan_remote_work
 resep bikin nasi goreng enak,fallback
 siapa presiden pertama indonesia,fallback
 jadwal kereta api jogja jakarta,fallback

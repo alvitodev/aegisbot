@@ -38,6 +38,11 @@ def test_tema_aegis_termuat():
     ("hp kena virus iklan pop up terus", "malware_ransomware"),
     ("akun instagram kebobol orang lain", "pemulihan_akun"),
     ("gimana aturan backup 3 2 1", "backup_enkripsi"),
+    ("dapat kiriman file apk undangan nikah di wa", "scam_apk_whatsapp"),
+    ("stiker qris palsu ditempel di kasir", "qris_palsu"),
+    ("beda 2fa authenticator dengan sms dan passkey", "autentikasi_2fa_passkey"),
+    ("penipuan voice cloning suara ai mirip keluarga", "ai_deepfake_scam"),
+    ("lapor penipuan rekening ke cekrekening id", "lapor_insiden_siber"),
 ])
 def test_klasifikasi_intent_aegis(pesan, intent):
     engine = ChatbotEngine(THEMES["aegis"])
@@ -95,3 +100,10 @@ def test_akurasi_data_uji_aegis_minimal_90_persen():
     from evaluate import baca_data, evaluasi
     akurasi, _ = evaluasi(THEMES["aegis"], baca_data("aegis"), 0.45)
     assert akurasi >= 0.9
+
+
+def test_respons_tidak_berulang_berturut_turut():
+    engine = ChatbotEngine(THEMES["aegis"])
+    balasan = [engine.reply("cara bikin password kuat")["reply"] for _ in range(5)]
+    for i in range(1, len(balasan)):
+        assert balasan[i] != balasan[i - 1]
